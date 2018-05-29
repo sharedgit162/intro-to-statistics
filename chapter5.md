@@ -12,6 +12,6 @@ key: 91c62dd015
 lang: r
 xp: 50
 skills: 1
-video_link: https://upload.wikimedia.org/wikipedia/commons/1/10/Shiba_Inu_cream.jpg
-```
 
+`@projector_key`
+cdcf1c24896700b62c2e2c9759c1725d

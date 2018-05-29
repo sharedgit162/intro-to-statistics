@@ -31,7 +31,7 @@ type: FullImageSlide
 key: 4ed5305e8b
 ```
 
-`@part1`
+
 ![](https://preview.ibb.co/dHTjOJ/1.jpg)
 
 dsjkfhajkshdfjksahdfjkhsdkjfhakjsdhfkjsdhf
