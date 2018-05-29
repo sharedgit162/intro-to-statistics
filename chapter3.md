@@ -1,41 +1,51 @@
 ---
-  title: "Пробная штука"
-  description: "Здесь мы пробуем штуки"
-  v2: true
+title: fghjk
+key: cdcf1c24896700b62c2e2c9759c1725d
+
+---
+## Hello
+
+```yaml
+type: TitleSlide
+key: 1f52fdb8ba
+```
+
+
+
+
+
+`@lower_third`
+name: AAA
+surname: BBB
+
+`@script`
+
+
 
 
 ---
-## Title
+## Insert title here...
 
 ```yaml
-type: VideoExercise
-key: TitleSlide
-lang: r
-xp: 50
-skills: 1
+type: FullImageSlide
+key: 4ed5305e8b
 ```
-![](https://upload.wikimedia.org/wikipedia/commons/1/10/Shiba_Inu_cream.jpg)
-insert title
+
+`@part1`
+![](https://preview.ibb.co/dHTjOJ/1.jpg)
+
+dsjkfhajkshdfjksahdfjkhsdkjfhakjsdhfkjsdhf
+
+
+
+
+
 
 ---
-## Slide
+## Final Slide
+
 ```yaml
-type: VideoExercise
-key: 3abe06ffd6
-lang: r
-xp: 50
-skills: 1
+type: FinalSlide
+key: bec4f420db
 ```
-
-skldjfksdjf
-
-
-
-
-`@projector_key`
-cdcf1c24896700b62c2e2c9759c1725d
-
-
-
-
 
