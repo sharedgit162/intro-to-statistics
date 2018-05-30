@@ -72,7 +72,7 @@ mean_erupt <- mean(faithful$eruptions)
 n <- nrow(faithful)
 
 #Несмещенная выборочная дисперсия продолжительности извержения гейзера по формуле.
-var_eval <- sum((faithful$eruptions - mean_erupt)**2) / (n - 1)
+var_eval <- sum((faithful$eruptions - mean_erupt) ** 2) / (n - 1)
 
 #Несмещенная выборочная дисперсия продолжительности извержения гейзера с помощью функции.
 var_erupt <- var(faithful$eruptions)
