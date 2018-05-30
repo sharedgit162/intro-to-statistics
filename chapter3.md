@@ -80,7 +80,11 @@ var_erupt <- var(faithful$eruptions)
 
 `@sct`
 ```{r}
-
+test_error()
+test_object("mean_erupt",
+            undefined_msg = "Make sure to define `x`!",
+            incorrect_msg = "Have you correctly assigned 5 to `x`!")
+success_msg("Awesome! It's considered good style to write spaces either side of the assignment arrow.")
 ```
 ---
 ## Метод максимального правдоподобия
