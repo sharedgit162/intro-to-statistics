@@ -147,7 +147,7 @@ skills: 1
 
 `@pre_exercise_code`
 ```{r}
-candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
+#candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
 ```
 
 `@sample_code`
@@ -165,13 +165,13 @@ ___(___$___)
 `@solution`
 ```{r}
 # Средняя оценка карамельности
-mean(candy$caramel)
+#mean(candy$caramel)
 
 # Дисперсия оценки шоколадности
-sd(candy$chocolate)
+#sd(candy$chocolate)
 
 # Медиана стоимости конфет
-median(candy$pricepercent)
+#median(candy$pricepercent)
 ```
 
 `@sct`
@@ -186,8 +186,8 @@ median(candy$pricepercent)
 #test_student_typed("median(candy$pricepercent)", not_typed_msg = "Возникла проблема с оценкой медианы стоимости конфет. Вы воспользовались функцией median() для нужной переменной?")
 
 #General
-test_error()
-success_msg("Великолепно! Однако подобное преставление не очень наглядно, в следующих упражнениях у Вас будет возможность визуализировать некоторые показатели.")
+#test_error()
+#uccess_msg("Великолепно! Однако подобное преставление не очень наглядно, в следующих упражнениях у Вас будет возможность визуализировать некоторые показатели.")
 ```
 
 
