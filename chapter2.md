@@ -29,7 +29,7 @@ key: dbe164cc29
 
 ```{r}
 # Load datasets and packages here.
-install.packages(MASS)
+#install.packages(MASS)
 library('faithful')
 ```
 
