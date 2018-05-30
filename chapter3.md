@@ -77,9 +77,10 @@ var_erupt <- var(faithful$eruptions)
 test_error()
 test_student_typed("mean_erupt <- mean(faithful$eruptions)", not_typed_msg = "Что-то не так с `mean_erupt`.")
 test_student_typed("n <- nrow(faithful)", not_typed_msg = "Что-то не так с `n`.")
-test_object("mean_erupt",
-            undefined_msg = "Make sure to define `x`!",
-            incorrect_msg = "Have you correctly assigned 5 to `x`!")
+test_function("mean", incorrect_msg = "Что-то не так с `mean_erupt`. Вызывали ли вы фугнкцию `mean()` для подсчета среднего?")
+test_function("sum", incorrect_msg = "Обратите внимание на третью инструкцию. Использовали ли вы функцию `sum()` для подсчета несмещенной дисперсии по формуле?")
+test_function("nrow", incorrect_msg = "Вызывали ли вы функцию `nrow()` для подсчета количества наблюдений?")
+
 success_msg("Awesome! It's considered good style to write spaces either side of the assignment arrow.")
 ```
 ---
