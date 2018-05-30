@@ -165,7 +165,7 @@ ___(___$___)
 `@solution`
 ```{r}
 # Средняя оценка карамельности
-#mean(candy$caramel)
+mean(candy[, "caramel"])
 
 # Дисперсия оценки шоколадности
 #sd(candy$chocolate)
