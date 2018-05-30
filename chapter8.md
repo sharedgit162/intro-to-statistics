@@ -35,9 +35,7 @@ key: 0ef3cf6ecf
 
 `@feedbacks`
 Something is wrong with. Take another look at the instruction.
-# second instruction
 Замечательно! Действительно, для применения ММП необходимо максимизировать функцию правдоподобия, для нахождения которой нужно знать, как случайные величины распределены.
-# third instruction
 Something is wrong with. Take another look at the instruction.
 Something is wrong with. Take another look at the instruction.
 
