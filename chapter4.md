@@ -147,7 +147,7 @@ skills: 1
 
 `@pre_exercise_code`
 ```{r}
-#candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
+candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
 ```
 
 `@sample_code`
