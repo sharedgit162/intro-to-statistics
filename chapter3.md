@@ -75,7 +75,8 @@ var_erupt <- var(faithful$eruptions)
 `@sct`
 ```{r}
 test_error()
-test_student_typed("mean_erupt <- mean(faithful$eruptions)", not_typed_msg = "Что-то не так с `mean_erupt`")
+test_student_typed("mean_erupt <- mean(faithful$eruptions)", not_typed_msg = "Что-то не так с `mean_erupt`.")
+test_student_typed("n <- nrow(faithful)", not_typed_msg = "Что-то не так с `n`.")
 test_object("mean_erupt",
             undefined_msg = "Make sure to define `x`!",
             incorrect_msg = "Have you correctly assigned 5 to `x`!")
