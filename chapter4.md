@@ -177,13 +177,13 @@ median(candy$pricepercent)
 `@sct`
 ```{r}
 #first instruction
-test_student_typed("mean(candy$caramel)", not_typed_msg = "Возникла проблема с оценкой карамельности. Вы воспользовались функцией mean() для нужной переменной?")
+#test_student_typed("mean(candy$caramel)", not_typed_msg = "Возникла проблема с оценкой карамельности. Вы воспользовались функцией mean() для нужной переменной?")
 
 #second instruction
-test_student_typed("sd(candy$chocolate)", not_typed_msg = "Возникла проблема с оценкой шоколадности. Вы воспользовались функцией sd() для нужной переменной?")
+#test_student_typed("sd(candy$chocolate)", not_typed_msg = "Возникла проблема с оценкой шоколадности. Вы воспользовались функцией sd() для нужной переменной?")
 
 #third instruction
-test_student_typed("median(candy$pricepercent)", not_typed_msg = "Возникла проблема с оценкой медианы стоимости конфет. Вы воспользовались функцией median() для нужной переменной?")
+#test_student_typed("median(candy$pricepercent)", not_typed_msg = "Возникла проблема с оценкой медианы стоимости конфет. Вы воспользовались функцией median() для нужной переменной?")
 
 #General
 test_error()
