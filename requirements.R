@@ -3,7 +3,7 @@ library(remotes)
 ##### Install specific package versions from CRAN #####
 
 install_version("ggplot2", "2.2.1")
-install_version("datasets", "3.6.0")
+#install_version("datasets", "3.6.0")
 install_version("corrplot", "0.84")
 install_version("psych", "1.8.4")
 install_version("MASS", "7.3-50")
