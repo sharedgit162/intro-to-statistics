@@ -456,6 +456,11 @@ key: ca569da340
 `@hint`
 - Подсказка
 
+`@pre_exercise_code`
+```{r}
+candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
+library(ggplot2)
+```
 
 `@sample_code`
 ```{r}
@@ -476,10 +481,10 @@ hist_sugar +
 `@solution`
 ```{r}
 # Квантиль 25% для доли сахара
-xmin <- quantile(sugarpercent)[2]
+xmin <- quantile(candy$sugarpercent)[2]
 
 # Квантиль 75% для доли сахара
-xmax = quantile(sugarpercent)[4]
+xmax = quantile(candy$sugarpercent)[4]
 
 # Постройте гистограмму для доли сахара
 hist_sugar <- ggplot(candy, aes(x = sugarpercent))+
