@@ -1,5 +1,5 @@
 ---
-title: Template Chapter 1
+title: Теоретическая глава
 description: This is a template chapter.
 ---
 
