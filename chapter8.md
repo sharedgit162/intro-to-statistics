@@ -29,14 +29,13 @@ key: 0ef3cf6ecf
 
 `@possible_answers`
 - Выборочное среднее; 
-- Функцию распределения случайных величин; 
+- [Функцию распределения случайных величин;] 
 - Оценку параметра методом моментов; 
 - Стандартное отклонение.
 
 `@feedbacks`
-Something is wrong with. Take another look at the instruction.
-Замечательно! Действительно, для применения ММП необходимо максимизировать функцию правдоподобия, для нахождения которой нужно знать, как случайные величины распределены.
-Something is wrong with. Take another look at the instruction.
-Something is wrong with. Take another look at the instruction.
-
+- A is not correct
+- Замечательно! Действительно, для применения ММП необходимо максимизировать функцию правдоподобия, для нахождения которой нужно знать, как случайные величины распределены.
+- C is not correct
+- D is not correct
 
