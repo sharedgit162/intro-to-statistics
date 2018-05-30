@@ -62,8 +62,8 @@ var_erupt <-
 
 `@solution`
 ```{r}
-#Функция glimpse() позволяет ознакомиться с датасетом.
-glimpse(faithful)
+#Функция describe() позволяет ознакомиться с датасетом.
+describe(faithful)
 
 #Посчитайте среднюю продолжительность извержения гейзера "Старый Служака".
 mean_erupt <- mean(faithful$eruptions) 
