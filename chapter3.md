@@ -75,7 +75,7 @@ test_function("mean", incorrect_msg = "Что-то не так с `mean_erupt`. 
 test_function("sum", incorrect_msg = "Обратите внимание на третью инструкцию. Использовали ли вы функцию `sum()` для подсчета несмещенной дисперсии по формуле?")
 test_function("nrow", incorrect_msg = "Вызывали ли вы функцию `nrow()` для подсчета количества наблюдений?")
 
-success_msg("Awesome! It's considered good style to write spaces either side of the assignment arrow.")
+success_msg("Превосходно! Как мы видим, значения оценки дисперсии, полученные различными способами, совпадают.")
 ```
 
 
