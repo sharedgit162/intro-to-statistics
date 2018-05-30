@@ -33,14 +33,11 @@ key: f3e9bc7cb4
 `@hint`
 Для подсчета несмещенной выборочной дисперсии по формуле необходимо `sum((faithful$eruptions - mean_erupt) ** 2) / (n - 1)`.
 
-
 `@pre_exercise_code`
 ```{r}
 library(datasets)
 data("faithful")
-
 ```
-
 `@sample_code`
 ```{r}
 #Посчитайте среднюю продолжительность извержения гейзера "Старый Служака".
@@ -54,9 +51,7 @@ var_eval <-
 
 #Несмещенная выборочная дисперсия продолжительности извержения гейзера с помощью функции.
 var_erupt <-
-
 ```
-
 `@solution`
 ```{r}
 #Посчитайте среднюю продолжительность извержения гейзера "Старый Служака".
@@ -71,7 +66,6 @@ var_eval <- sum((faithful$eruptions - mean_erupt) ** 2) / (n - 1)
 #Несмещенная выборочная дисперсия продолжительности извержения гейзера с помощью функции.
 var_erupt <- var(faithful$eruptions)
 ```
-
 `@sct`
 ```{r}
 test_error()
@@ -83,6 +77,11 @@ test_function("nrow", incorrect_msg = "Вызывали ли вы функцию
 
 success_msg("Awesome! It's considered good style to write spaces either side of the assignment arrow.")
 ```
+
+
+
+
+
 ---
 ## Метод максимального правдоподобия
 
