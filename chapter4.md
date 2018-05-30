@@ -179,3 +179,161 @@ median(candy$pricepercent)
 ```{r}
 
 ```
+
+
+---
+## <<<New Exercise>>>
+
+```yaml
+type: NormalExercise
+key: 9b02ed8ddb
+lang: r
+xp: 100
+skills: 1
+```
+При работе с реальными данными практически никогда нельзя сделать вывод, глядя на сухие числа. У Вас должна сформироваться привычка всегда визуализировать данные, потому что тогда Вы сможете обнаружить зависимости, которые не видно при анализе таблицы или потока чисел. В данном курсе Вы будете использовать самые простые методы визуализации, но их вполне бывает достаточно для первичного анализа.
+
+`@instructions`
+- Загрузите библиотеку ggplot2.
+- Постройте гистограмму пользовательских оценок (winpercent), установив binwidth, равным 7.
+
+`@hint`
+Для построения гистограммы после + вызовите функцию 'geom_histogram()'.
+
+`@pre_exercise_code`
+```{r}
+candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
+```
+`@sample_code`
+```{r}
+#загрузка библиотеки
+___(___)
+
+#построение гистограммы
+ggplot(data = ___, aes(x = ___)) +
+___(binwidth = ___)
+```
+`@solution`
+```{r}
+#загрузка библиотеки
+library(ggplot2)
+
+#построение гистограммы
+ggplot(data = candy, aes(x = winpercent)) +
+  geom_histogram(binwidth = 7)
+```
+`@sct`
+```{r}
+#first instruction
+test_student_typed("library(ggplot2)", not_typed_msg = "Возникла проблема с загрузкой библиотеки. Вы воспользовались функцией 'library()'?")
+
+#second instruction
+test_student_typed("ggplot(data = candy, aes(x = winpercent)) + geom_histogram(binwidth = 7)", not_typed_msg = "Возникла проблема с построением гистограммы. Проверьте, установлена ли правильная ширина bins и правильность анализируемой переменной.")
+
+#General
+test_error()
+success_msg("Превосходно! Вы можете попрактиковаться в выборе ширины bin и посмотреть, как от этого меняется результат.")
+```
+
+
+
+---
+## <<<New Exercise>>>
+
+```yaml
+type: MultipleChoiceExercise
+key: a6eaf579fe
+lang: r
+xp: 50
+skills: 1
+```
+На какое из известных распределений приблизительно похоже распределений пользовательских оценок?
+
+`@instructions`
+- Хи-квадрат
+- Нормальное
+- Биномиальное с вероятностью 0.8
+
+
+`@pre_exercise_code`
+```{r}
+candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
+library(ggplot2)
+ggplot(data = candy, aes(x = winpercent)) +
+  geom_histogram(binwidth = 7)
+```
+
+
+`@sct`
+```{r}
+msg1 <- "Неверно."
+msg2 <- "Отлично!"
+msg3 <- "Неправильно."
+
+test_mc(c(2, 3), feedback_msgs = c(msg1, msg2, msg3))
+
+#General
+test_error()
+success_msg("Отлично!")
+```
+
+
+---
+## <<<New Exercise>>>
+
+```yaml
+type: NormalExercise
+key: 3c69ba8592
+lang: r
+xp: 100
+skills: 1
+```
+В предыдущих главах Вы уже изучили разницу между медианой и средним. При наличии какого-то сильного выброса значение среднего может сильно сдвинуться и уже не будет подходить для анализа. Увидеть это, не визуализируя данные, практически невозможно, поэтому мы ещё раз обращаем внимание на необходимость отображения данных на графике.
+
+`@instructions`
+- Выведите значение среднего и медианы пользовательских оценок 
+- Постройте график гистограммы пользовательских оценок, установив количество bins, равных 10 (библиотека ggplot2 уже загружена)
+- Отобразите на ней среднее красным цветом (“red”) с прозрачностью 0.4, а медиану – зелёным (“green”) цветом с прозрачностью 0.2
+
+
+`@pre_exercise_code`
+```{r}
+candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
+library(ggplot2)
+```
+`@sample_code`
+```{r}
+# Среднее значение пользовательских оценок
+mean_win <- ___(___)
+mean_win
+
+# Медиана пользовательских оценок
+median_win <- ___(___)
+median_win
+
+# Гистограмма с отображёнными значениями среднего и медианы
+ggplot(___, aes(___)) +
+   ___(bins = 10) +
+  geom_vline(xintercept = ___, col = "___", alpha = ___) +
+  geom_vline(xintercept = ___, col = "___", alpha = ___)
+```
+`@solution`
+```{r}
+# Среднее значение пользовательских оценок
+mean_win <- mean(candy$winpercent)
+mean_win
+
+# Медиана пользовательских оценок
+median_win <- median(candy$winpercent)
+median_win
+
+# Гистограмма с отображёнными значениями среднего и медианы
+ggplot(data = candy, aes(x = winpercent)) +
+  geom_histogram(bins = 10) +
+  geom_vline(xintercept = mean_win, col = "red", alpha = 0.4) +
+  geom_vline(xintercept = median_win, col = "green", alpha = 0.2)
+```
+`@sct`
+```{r}
+
+```
