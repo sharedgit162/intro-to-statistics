@@ -34,6 +34,10 @@ key: 0ef3cf6ecf
 - Стандартное отклонение.
 
 `@feedbacks`
-Замечательно! Действительно, для применения ММП необходимо максимизировать функцию правдоподобия, для нахождения которой нужно знать, как случайные величины распределены.  
-
+# first instruction
+test_student_typed("Выборочное среднее", not_typed_msg = "Something is wrong with. Take another look at the instruction.")
+# second instruction
+success_msg("Замечательно! Действительно, для применения ММП необходимо максимизировать функцию правдоподобия, для нахождения которой нужно знать, как случайные величины распределены.")  
+# third instruction
+test_student_typed("Оценку параметра методом моментов", not_typed_msg = "Something is wrong with. Take another look at the instruction.")
 
