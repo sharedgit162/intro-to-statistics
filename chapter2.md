@@ -9,18 +9,21 @@ description: This is a template chapter.
 type: NormalExercise
 lang: r
 xp: 100
-skills: 1
+skills: 2
 key: dbe164cc29
 ```
 
-В этой главе мы научимся вычислять основные выборочные характеристики при помощи *R*. Будем работать с датасетом faithful, который содержит данные о продолжительности `eruptions`  и времени ожидания `waiting` между извержениями гейзера Старый Служака. Давайте посмотрим на распределение времени ожидания извержения гейзера. Для этого построим эмпирическую функция распределения.
-
+В этой главе мы научимся вычислять основные выборочные характеристики при помощи *R*. Будем работать с датасетом faithful, который содержит данные о продолжительности `eruptions`  и времени ожидания `waiting` между извержениями гейзера Старый Служака. Давайте посмотрим на распределение времени ожидания извержения гейзера. Для этого построим эмпирическую функцию распределения.
+Для построения Вам необходимо вспомнить, что такое вариационный ряд
+$$ X_(n-1) \le X_(n-1) $$ ##дописать
 
 `@instructions`
 - Для визуализации данных загрузите пакет `ggplot2`.
-- Instruction 2
-- Instruction 3
-- Instruction 4
+- Посчитатйте число наблюдений (количество строк в матрице `nrow()`).
+- Постройте вариационный ряд значений времени ожидания.  Полученные значения сохраните в переменную `x_ecdf`.
+- Сгенерируйте значения функции распределения и сохраните их в переменную `y_cdf`.
+- С помощью функции `ggplot2()` постройте эмпирическую функцию распределения. Вам нужно указать оси `mapping = aes(x=  , y=   )`. Тип графика  - `geom_line()`.
+
 
 `@hint`
 - Here is the hint for this setup problem. It should get students 50% of the way to the correct answer.
@@ -29,15 +32,17 @@ key: dbe164cc29
 
 ```{r}
 # Load datasets and packages here.
-# install.packages(MASS)
-# library('faithful')
-head(faithful)
+#library(datasets)
+#datasets('faithful')
+#data <- faithful
+
+
 ```
 
 `@sample_code`
 
 ```{r}
-# Your
+# Загрузите пакет для визуализации 
 # sample
 # code
 # should
@@ -51,10 +56,17 @@ head(faithful)
 `@solution`
 
 ```{r}
-# Answer goes here
-# Make sure to match the comments with your sample code
-# to help students see the differences from solution
-# to given.
+#Загрузите пакет для визуализации данных
+library(ggplot2)
+#Найдите число наблюдений
+n <- nrow(faithful)
+#Постройте вариационный ряд значений времени ожидания
+x_ecdf <- sort(faithful$waiting, decreasing = FALSE)
+#Сгенерируйте значения выборочной функции распределения
+y_ecdf <- seq(from = 1, to = n, by=1)/n
+#Постройте выборочную функцию распределения
+ggplot(mapping = aes(x_ecdf, y_ecdf)) + geom_line() + labs(title = 'Эмпирическая функция распределения', x = 'Время ожидания', y = 'F(x)')+theme(plot.title = element_text(hjust = 0.5))
+
 ```
 
 `@sct`
