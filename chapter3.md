@@ -254,7 +254,7 @@ ggplot() +
 `@sct`
 ```{r}
 #first instruction
-test_object("normal", incorrect_msg = "Что-то не так с `normal`. Сгенерировали ли вы миллион наблюдений с помощью функции `rnorm()`?")
+test_output_contains("normal <- rnorm(1000000, 0, 1)", incorrect_msg = "Что-то не так с `normal`. Сгенерировали ли вы миллион наблюдений с помощью функции `rnorm()`?")
 
 #second instruction
 test_student_typed("quantile(normal, 0.75)", not_typed_msg = "Обратите внимание на вторую инструкцию. Правильно ли вы посчитали третий квартиль?")
