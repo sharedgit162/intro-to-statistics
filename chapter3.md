@@ -212,7 +212,7 @@ skills: 1
 `@instructions`
 - Сгенерируйте миллион наблюдений из стандартного нормального распределения и сохраните результат в переменную `normal`.
 - Посчитайте третий квартиль (0.75-квантиль) с помощью функции `quantile()` для данного распределения.
-- Изобразите функцию плотности данного распределения и третий квартиль (0.75-квантиль) *(код уже представлен в рабочем пространстве)*.
+- Изобразите функцию плотности данного распределения и третий квартиль (0.75-квантиль). Вместо `_____` укажите третий квартиль.
 
 
 `@hint`
@@ -229,12 +229,12 @@ library(ggplot2)
 normal <- 
 
 #Посчитайте третий квартиль (0.75-квантиль) для данного распределения.
-
+quartile <- 
 
 #Изобразите функцию плотности данного распределения и третий квартиль (0.75-квантиль).
 ggplot() + 
   geom_density(aes(normal), fill = "blue", alpha = 0.1) +
-  geom_vline(xintercept = quantile(normal, 0.75), col = "red", size = 1.5)
+  geom_vline(xintercept = _____, col = "red", size = 1.5)
 ```
 
 `@solution`
@@ -243,21 +243,21 @@ ggplot() +
 normal <- rnorm(1000000, 0, 1)
 
 #Посчитайте третий квартиль (0.75-квантиль) для данного распределения.
-quantile(normal, 0.75)
+quartile <- quantile(normal, 0.75)
 
 #Изобразите функцию плотности данного распределения и третий квартиль (0.75-квантиль).
 ggplot() + 
   geom_density(aes(normal), fill = "blue", alpha = 0.1) +
-  geom_vline(xintercept = quantile(normal, 0.75), col = "red", size = 1.5)
+  geom_vline(xintercept = quartile, col = "red", size = 1.5)
 ```
 
 `@sct`
 ```{r}
 #first instruction
-test_output_contains("normal <- rnorm(1000000, 0, 1)", incorrect_msg = "Что-то не так с `normal`. Сгенерировали ли вы миллион наблюдений с помощью функции `rnorm()`?")
+test_object("normal", incorrect_msg = "Что-то не так с `normal`. Сгенерировали ли вы миллион наблюдений с помощью функции `rnorm()`?")
 
 #second instruction
-test_student_typed("quantile(normal, 0.75)", not_typed_msg = "Обратите внимание на вторую инструкцию. Правильно ли вы посчитали третий квартиль?")
+test_student_typed("quartile <- quantile(normal, 0.75)", not_typed_msg = "Обратите внимание на вторую инструкцию. Правильно ли вы посчитали третий квартиль?")
 
 #General
 test_error()
