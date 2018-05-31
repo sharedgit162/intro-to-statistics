@@ -41,16 +41,16 @@ data("faithful")
 `@sample_code`
 ```{r}
 #Посчитайте среднюю продолжительность извержения гейзера "Старый Служака".
-mean_erupt <- 
+mean_erupt <-  
 
 #Посчитайте количество наблюдений в датасете.
-n <-
+n <- 
 
 #Несмещенная выборочная дисперсия продолжительности извержения гейзера по формуле.
-var_eval <-
+var_eval <- 
 
 #Несмещенная выборочная дисперсия продолжительности извержения гейзера с помощью функции.
-var_erupt <-
+var_erupt <- 
 ```
 `@solution`
 ```{r}
@@ -69,13 +69,13 @@ var_erupt <- var(faithful$eruptions)
 `@sct`
 ```{r}
 #first instruction
-
+test_student_typed("mean_erupt <- mean(faithful$eruptions)", not_typed_msg = "Что-то не так с `mean_erupt`. Вызывали ли вы функцию `mean()` для подсчета среднего?")
 
 #second instruction
 test_student_typed("n <- nrow(faithful)", not_typed_msg = "Что-то не так с `n`.")
 
 #third instruction
-test_object("var_eval", incorrect_msg = "Что-то не так со значением `var_eval`. Использовали ли вы функцию `mean()` для подсчета среднего и функцию `sum()` для подсчета несмещенной дисперсии по формуле?")
+test_object("var_eval", incorrect_msg = "Что-то не так со значением `var_eval`. Использовали ли вы функцию `sum()` для подсчета несмещенной дисперсии по формуле?")
 
 #fourth instruction
 test_object("var_erupt", incorrect_msg = "Что-то не так со значением `var_erupt`.")
