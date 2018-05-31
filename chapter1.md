@@ -114,5 +114,11 @@ var
 
 `@sct`
 ```{r}
-
+ex() %>% check_output("0.25", missing_msg = "Проверьте, правильно ли Вы заполнили формулу математического ожидания.")
+ex() %>% check_object("x") %>% check_equal(incorrect_msg = "Проверьте правильность заполнения вектора x.")
+ex() %>% check_object("p") %>% check_equal()
+ex() %>% check_object("mu") %>% check_equal()
+ex() %>% check_object("var") %>% check_equal()
+ex() %>% check_output("0.1875", missing_msg = "Проверьте, вывели ли Вы полученное значение дисперсии.")
+success_msg("Здорово! Как Вы видите, R очень удобно использовать в качестве продвинутого калькулятора. Но он способен на гораздо большее!")
 ```
