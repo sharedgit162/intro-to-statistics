@@ -3,67 +3,6 @@ title: Теоретическая глава
 description: This is a template chapter.
 ---
 
-## Ex 1.1
-
-```yaml
-type: NormalExercise
-lang: r
-xp: 100
-skills: 1
-key: dbe164cc29
-```
-
-This is the assignment text. It should help provide students with the background information needed.
-The instructions that follow should be in bullet point form with clear guidance for what is expected.
-
-`@instructions`
-- Instruction 1
-- Instruction 2
-- Instruction 3
-- Instruction 4
-
-`@hint`
-- Here is the hint for this setup problem. It should get students 50% of the way to the correct answer.
-
-`@pre_exercise_code`
-
-```{r}
-# Load datasets and packages here.
-```
-
-`@sample_code`
-
-```{r}
-# Your
-# sample
-# code
-# should
-# be
-# ideally
-# 10 lines or less,
-# with a max
-# of 16 lines.
-```
-
-`@solution`
-
-```{r}
-# Answer goes here
-# Make sure to match the comments with your sample code
-# to help students see the differences from solution
-# to given.
-```
-
-`@sct`
-
-```{r}
-# Update this to something more informative.
-success_msg("Some praise! Then reinforce a learning objective from the exercise.")
-```
-
-
-
----
 ## Будет ли сегодня дождь?
 
 ```yaml
@@ -76,12 +15,67 @@ skills: 1
 
 `@possible_answers`
 
-* Значение прибора до его включения – случайная величина.
-* Значение прибора до его включения – константа.
-* Геннадий увидел, что прибор показывает "1". Значение прибора – случайная величина. 
-* В прошлый четверг дождя не было, и утром прибор показал "0". Показанное значение прибора – случайная величина. 
+- [Значение прибора до его включения – случайная величина.]
+- Значение прибора до его включения – константа.
+- Геннадий увидел, что прибор показывает "1". Значение прибора – случайная величина. 
+- В прошлый четверг дождя не было, и утром прибор показал "0". Показанное значение прибора – случайная величина. 
+
+`@hint`
+Случаная величина может принимать некоторые значения с определенной вероятностью. Реализация случайной величины в данный момент времени – константа. 
+
+`@feedback`
+- Верно! До того, как прибор включён, Геннадий может только предположить, какое значение он покажет.
+- Геннадий не знает, какую константу покажет прибор до включения.
+- Геннадий знает, какое значение показал прибор, случайность отсутствует. 
+- Геннадий знает, какое значение показал прибор, случайность отсутствует.
+
+
+
+
+---
+## В ожидании непогоды
+
+```yaml
+type: NormalExercise
+key: 06813252d3
+lang: r
+xp: 100
+skills: 1
+```
+
+
+`@instructions`
+
+Как вы поняли, значение прибора до включения – случайная величина, имеющая распределение Бернулли:
+```{r fig.width=1, fig.height=10,echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("https://dl.dropboxusercontent.com/s/ocxkserxtg21gax/1_1.png?dl=0")
+grid.raster(img)
+```
+
+
+sdf
+fgj
 
 `@hint`
 
-`@feedback`
+`@pre_exercise_code`
+```{r}
 
+```
+
+`@sample_code`
+```{r}
+
+```
+
+`@solution`
+```{r}
+
+```
+
+`@sct`
+```{r}
+
+```
