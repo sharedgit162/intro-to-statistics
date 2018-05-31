@@ -60,3 +60,28 @@ The instructions that follow should be in bullet point form with clear guidance 
 # Update this to something more informative.
 success_msg("Some praise! Then reinforce a learning objective from the exercise.")
 ```
+
+
+
+---
+## Будет ли сегодня дождь?
+
+```yaml
+type: PureMultipleChoiceExercise
+key: 4ff2227cf9
+xp: 50
+skills: 1
+```
+Известно, что каждый день дождь может либо идти, либо не идти. Каждое утро исследователь Геннадий включает специальный прибор, который выводит "1", если дождь в этот день будет, и "0", если дождя не будет. Выберите верное утверждение о работе прибора.
+
+`@possible_answers`
+
+* Значение прибора до его включения – случайная величина.
+* Значение прибора до его включения – константа.
+* Геннадий увидел, что прибор показывает "1". Значение прибора – случайная величина. 
+* 
+
+`@hint`
+
+`@feedback`
+

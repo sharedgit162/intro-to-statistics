@@ -100,3 +100,40 @@ success_msg("Great!")
 
 
 ```
+
+---
+## Задание 2.2
+
+```yaml
+type: NormalExercise
+key: a458f30712
+lang: r
+xp: 100
+skills: 1
+```
+
+
+`@instructions`
+-Давайте нариусем пуассона
+
+`@hint`
+
+`@pre_exercise_code`
+```{r}
+
+```
+
+`@sample_code`
+```{r}
+
+```
+
+`@solution`
+```{r}
+
+```
+
+`@sct`
+```{r}
+
+```
