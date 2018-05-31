@@ -75,12 +75,9 @@ test_student_typed("mean_erupt <- mean(faithful$eruptions)", not_typed_msg = "Ч
 test_student_typed("n <- nrow(faithful)", not_typed_msg = "Что-то не так с `n`.")
 
 #third instruction
-test_function("sum", incorrect_msg = "Обратите внимание на третью инструкцию. Использовали ли вы функцию `sum()` для подсчета несмещенной дисперсии по формуле?")
+test_object("var_eval", incorrect_msg = "Что-то не так со значением `var_eval`. Использовали ли вы функцию `sum()` для подсчета несмещенной дисперсии по формуле?")
 
 #fourth instruction
-test_object("var_eval", incorrect_msg = "Что-то не так со значением `var_eval`.")
-
-#fifth instruction
 test_object("var_erupt", incorrect_msg = "Что-то не так со значением `var_erupt`.")
 
 #General
