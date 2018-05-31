@@ -284,11 +284,18 @@ mu <- ___
 first_central <- ___
 
 # Функция биномиального распределения
-ggplot(data.frame(x = c(-5, 5)), aes(x)) + stat_function(fun = pbinom, args = list(size= ___, prob= ___), geom = 'step')
+ggplot(data.frame(x = c(-5, 5)), aes(x)) + 
+stat_function(fun = pbinom, args = list(size = ___, prob = ___), geom = 'step') + 
+ylab("F(x)") +
+ggtitle("Binomial Distribution") +
+theme(plot.title = element_text(hjust = 0.5))
 
 # Функция распределения Бернулли
-ggplot(data.frame(x = c(-5, 5)), aes(x)) + stat_function(fun = pbinom, args = list(size = ___, prob = 0.5), geom = 'step')
-
+ggplot(data.frame(x = c(-5, 5)), aes(x)) + 
+stat_function(fun = pbinom, args = list(size = ___, prob = 0.5), geom = 'step') +
+ylab("F(x)") +
+ggtitle("Bernoulli Distribution") +
+theme(plot.title = element_text(hjust = 0.5))
 ```
 
 `@solution`
@@ -303,10 +310,18 @@ mu <- sum(x*p)
 first_central <- sum((x-mu)*p)
 
 # Функция биномиального распределения
-ggplot(data.frame(x = c(-5, 5)), aes(x)) + stat_function(fun = pbinom, args = list(size = 3, prob = 0.5), geom = 'step')
+ggplot(data.frame(x = c(-5, 5)), aes(x)) + 
+stat_function(fun = pbinom, args = list(size = 3, prob = 0.5), geom = 'step') + 
+ylab("F(x)") +
+ggtitle("Binomial Distribution") +
+theme(plot.title = element_text(hjust = 0.5))
 
 # Функция распределения Бернулли
-ggplot(data.frame(x = c(-5, 5)), aes(x)) + stat_function(fun = pbinom, args = list(size = 1, prob = 0.5), geom = 'step')
+ggplot(data.frame(x = c(-5, 5)), aes(x)) + 
+stat_function(fun = pbinom, args = list(size = 1, prob = 0.5), geom = 'step') +
+ylab("F(x)") +
+ggtitle("Bernoulli Distribution") +
+theme(plot.title = element_text(hjust = 0.5))
 
 ```
 
