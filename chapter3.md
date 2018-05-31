@@ -264,7 +264,7 @@ test_error()
 success_msg("Отлично! Так держать!")
 ```
 ---
-## Какой больше?
+## Какой квантиль больше?
 
 ```yaml
 type: MultipleChoiceExercise
