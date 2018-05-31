@@ -1,5 +1,5 @@
 ---
-title: Теоретическая глава
+title: Теория вероятностей и R
 description: This is a template chapter.
 ---
 
