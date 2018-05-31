@@ -47,16 +47,10 @@ skills: 1
 `@instructions`
 
 Как вы поняли, значение прибора до включения – случайная величина, имеющая распределение Бернулли:
-```{r fig.width=1, fig.height=10,echo=FALSE}
-library(png)
-library(grid)
-img <- readPNG("https://dl.dropboxusercontent.com/s/ocxkserxtg21gax/1_1.png?dl=0")
-grid.raster(img)
-```
 
+![](https://dl.dropboxusercontent.com/s/ocxkserxtg21gax/1_1.png?dl=0 =345x50)
 
-sdf
-fgj
+В этом задании вам предстоит найти математическое ожидание значения прибора двумя способами
 
 `@hint`
 
