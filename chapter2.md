@@ -100,6 +100,60 @@ success_msg("Great!")
 
 
 
+
+---
+## <<<New Exercise>>>
+
+```yaml
+type: NormalExercise
+key: 6bf93ce506
+lang: r
+xp: 100
+skills: 1
+```
+
+
+`@instructions`
+
+`@hint`
+
+`@pre_exercise_code`
+```{r}
+
+```
+
+`@sample_code`
+```{r}
+
+```
+
+`@solution`
+```{r}
+
+```
+
+`@sct`
+```{r}
+
+```
+
+---
+## <<<Интерпретация доверительных интервалов>>>
+
+```yaml
+type: PureMultipleChoiceExercise
+key: e692d3bd0c
+xp: 50
+skills: 1
+```
+Выберите верное суждение о 99% доверительном интервале
+
+`@possible_answers`
+
+`@hint`
+
+`@feedback`
+
 ---
 ## Задание 2.2
 
