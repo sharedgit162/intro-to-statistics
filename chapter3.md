@@ -139,7 +139,7 @@ mean_time <- mean(faithful$waiting)
 `@sct`
 ```{r}
 #first instruction
-test_function("mean", not_typed_msg = "Что-то не так с `mean_time`. Вызывали ли вы функцию `mean()` для подсчета среднего?")
+test_function("mean", incorrect_msg = "Что-то не так с `mean_time`. Вызывали ли вы функцию `mean()` для подсчета среднего?")
 
 #second instruction
 test_student_typed("mean_time <- mean(faithful$waiting)", not_typed_msg = "Что-то не так с `mean_erupt`.")
