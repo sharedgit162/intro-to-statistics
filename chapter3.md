@@ -69,24 +69,18 @@ var_erupt <- var(faithful$eruptions)
 `@sct`
 ```{r}
 #first instruction
-test_function("mean", incorrect_msg = "Что-то не так с `mean_erupt`. Вызывали ли вы функцию `mean()` для подсчета среднего?")
+test_student_typed("mean_erupt <- mean(faithful$eruptions)", not_typed_msg = "Что-то не так с `mean_erupt`. Вызывали ли вы функцию `mean()` для подсчета среднего?")
 
 #second instruction
-test_student_typed("mean_erupt <- mean(faithful$eruptions)", not_typed_msg = "Что-то не так с `mean_erupt`.")
-
-#third instruction
-test_function("nrow", incorrect_msg = "Вызывали ли вы функцию `nrow()` для подсчета количества наблюдений?")
-
-#fourth instruction
 test_student_typed("n <- nrow(faithful)", not_typed_msg = "Что-то не так с `n`.")
 
-#fifth instruction
+#third instruction
 test_function("sum", incorrect_msg = "Обратите внимание на третью инструкцию. Использовали ли вы функцию `sum()` для подсчета несмещенной дисперсии по формуле?")
 
-#sixth instruction
+#fourth instruction
 test_object("var_eval", incorrect_msg = "Что-то не так со значением `var_eval`.")
 
-#seventh instruction
+#fifth instruction
 test_object("var_erupt", incorrect_msg = "Что-то не так со значением `var_erupt`.")
 
 #General
