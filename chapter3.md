@@ -259,6 +259,10 @@ test_object("normal", incorrect_msg = "Что-то не так с `normal`. Сг
 #second instruction
 test_student_typed("quartile <- quantile(normal, 0.75)", not_typed_msg = "Обратите внимание на вторую инструкцию. Правильно ли вы посчитали третий квартиль?")
 
+#second instruction
+test_student_typed("ggplot() + 
+  geom_density(aes(normal), fill = "blue", alpha = 0.1) +
+  geom_vline(xintercept = quartile, col = "red", size = 1.5)", not_typed_msg = "Указали ли вы `quartile` вместо `_____`?")
 #General
 test_error()
 success_msg("Отлично! Так держать!")
