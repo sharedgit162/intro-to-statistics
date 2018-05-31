@@ -143,6 +143,10 @@ test_function("mean", incorrect_msg = "Что-то не так с `mean_time`. �
 
 #second instruction
 test_student_typed("mean_time <- mean(faithful$waiting)", not_typed_msg = "Что-то не так с `mean_erupt`.")
+
+#General
+test_error()
+success_msg("Отлично! Так держать!")
 ```
 ---
 ## Метод максимального правдоподобия
