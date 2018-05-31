@@ -119,8 +119,9 @@ skills: 1
 
 `@hint`
 
-`@pre_exercise_code`
-```{r }
+`@sample_code`
+
+```{r echo=FALSE}
 ggplot(mapping = aes(x_ecdf, y_ecdf)) + geom_line() + labs(title = 'Эмпирическая функция распределения', x = 'Время ожидания', y = 'F(x)')+theme(plot.title = element_text(hjust = 0.5))
 
 ```
