@@ -604,7 +604,7 @@ key: d6c1759f04
 
 ```
 
-С какой переменной у pluribus самая сильная корреляция?
+С какой переменной у `pluribus` самая сильная корреляция? (матрица `candy_cor` уже загружена для работы с ней)
 
 `@instructions`
 - chocolate
@@ -613,14 +613,15 @@ key: d6c1759f04
 - fruity
 
 `@hint`
-Обратите внимание на соответсвующие показатели в столбце переменной pluribus.
+Выведите в консоль `candy_cor[pluribus]` и посмотрите на соответствующие показатели.
 
 `@pre_exercise_code`
 ```{r}
 candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
+library(dplyr)
+library(corrplot)
 candy_cut <- select(candy, -competitorname)
 candy_cor <- cor(candy_cut)
-candy_cor
 ```
 
 
@@ -635,7 +636,7 @@ test_mc(2, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
 #General
 test_error()
-success_msg("Прекрасно! Однако выгружать каждый столбец из корреляционной матрицы, чтобы проследить зависимости переменных одной от другой, довольно громоздко…")
+success_msg("Прекрасно! Однако анализировать корреляционную матрицу, чтобы проследить зависимости переменных одной от другой, довольно неудобно…")
 ```
 
 
