@@ -216,10 +216,18 @@ cor_2 <- cor(faithful$eruptions, faithful$waiting)
 
 ```{r}
 
-msg_1 = "В качества аргумента `nrow()` передайте название датасета"
-msg_2 = "Обратиться к значениям переменной по названию можно с помощью `faithful$waiting`"
-msg_3 = "Функция распределения может принимать значения от 0 до 1."
+msg_1 = "Убедитесь, что Вы передали функции верный аргумент."
+msg_2 = "Вам нужны элементы матрицы, не лежащие на диагонали."
+msg_3 = "Извлечь квадртаный корень из числа можно при помощи функции sqrt()"
+msg_4 = "Просмотрите формулу корреляции еще раз"
+msg_5 = "В качестве аргументов передайте функции два вектора со значениями признаков"
 
+test_object("cov_matrix", undefined_msg = msg_1, incorrect_msg = msg_1)
+test_object("covariance", undefined_msg = msg_2, incorrect_msg = msg_2)
+test_object("sd_erupt", undefined_msg = msg_3, incorrect_msg = msg_3)
+test_object("sd_wait", undefined_msg = msg_3, incorrect_msg = msg_3)
+test_object("cor_1", undefined_msg = msg_4, incorrect_msg = msg_4)
+test_object("cor_2", undefined_msg = msg_5, incorrect_msg = msg_5)
 
 test_error()
 success_msg("Great!")
