@@ -560,7 +560,7 @@ library(___)
 library(___)
 
 # Приведите датасет к необходимому виду
-candy_cut <- ___
+candy_cut <- select(___)
 
 # Постройте корреляционную матрицу
 candy_cor <- ___
@@ -573,7 +573,7 @@ library(corrplot)
 library(dplyr)
 
 # Приведите датасет к необходимому виду
-candy_cut <- select
+candy_cut <- select(candy, -competitorname)
 
 #Постройте корреляционную матрицу
 candy_cor <- cor(candy_cut)
