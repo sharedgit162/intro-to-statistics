@@ -335,6 +335,8 @@ key: 3c69ba8592
 - Постройте график гистограммы пользовательских оценок, установив количество bins, равных 10 (библиотека ggplot2 уже загружена)
 - Отобразите на ней среднее красным цветом (“red”) с прозрачностью 0.4, а медиану – зелёным (“green”) цветом с прозрачностью 0.2
 
+`@hint`
+
 
 `@pre_exercise_code`
 ```{r}
@@ -516,6 +518,9 @@ hist_sugar +
 `@sct`
 ```{r}
 #General
+ex() %>% check_object("xmin") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `xmin`.")
+ex() %>% check_object("xmax") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `xmax`.")
+ex() %>% check_object("hist_sugar") %>% check_equal(incorrect_msg = "Проверьте правильность построения графика.")
 test_error()
 success_msg("Невероятно! Теперь Вы сможете сформировать представление о любом датасете!")
 ```
@@ -581,6 +586,11 @@ candy_cor
 ```
 `@sct`
 ```{r}
+test_student_typed("library(corrplot)", not_typed_msg = "Вы не подгрузили библиотеку corrplot. Внимательно прочтите инструкцию")
+test_student_typed("library(dplyr)", not_typed_msg = "Вы не подгрузили библиотеку dplyr. Внимательно прочтите инструкцию")
+ex() %>% check_object("candy_cut") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `candy_cut`.")
+ex() %>% check_object("candy_cor") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `candy_cor`.")
+
 #General
 test_error()
 success_msg("Безупречно! В следующем упражнении Вы научитесь извлекать из этой таблицы информацию о датасете и обнаруженных в нём зависимостях.")
@@ -591,7 +601,7 @@ success_msg("Безупречно! В следующем упражнении В
 
 
 ---
-## Insert exercise title here
+## Анализ зависимостей
 
 ```yaml
 type: MultipleChoiceExercise
@@ -637,6 +647,113 @@ test_mc(2, feedback_msgs = c(msg1, msg2, msg3, msg4))
 #General
 test_error()
 success_msg("Прекрасно! Однако анализировать корреляционную матрицу, чтобы проследить зависимости переменных одной от другой, довольно неудобно…")
+```
+
+
+
+
+
+---
+## Визуализация корреляции
+
+```yaml
+type: NormalExercise
+
+xp: 100
+
+key: 263d269a1d
+
+
+
+```
+
+Как Вы могли заметить, работа с численным выражением корреляции не удобна, поэтому Вы, как опытный исследователь, должны уметь визуализировать данную информацию с помощью корреляционной таблицы, используя функцию `corrplot()`. Помните, что эта функция может принимать только тот датасет, который был приведён к нужному типу с помощью функции `cor()`. Построенная Вами в предыдущих упражнениях матрица candy_cor уже загружена.
+
+`@instructions`
+- Постройте корреляционную матрицу.
+
+`@hint`
+Передайте функции corrplot() в качестве аргумента корреляционную  матрицу.
+
+`@pre_exercise_code`
+```{r}
+candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
+library(dplyr)
+library(corrplot)
+candy_cut <- select(candy, -competitorname)
+candy_cor <- cor(candy_cut)
+```
+`@sample_code`
+```{r}
+# Корреляционная матрица показателей конфет
+corrplot(___, method = "circle")
+```
+`@solution`
+```{r}
+# Корреляционная матрица показателей конфет
+corrplot(candy_cor, method = "circle")
+```
+`@sct`
+```{r}
+test_student_typed("corrplot(candy_cor, method = "circle")", not_typed_msg = "Возникла ошибка при построении матрицы.")
+
+#General
+test_error()
+success_msg("Чудесно! Сила корреляции на графике изображена насыщенностью оттенка, а её направленность – цветом. По диагонали можно заметить ряд из синих кругов, так как корреляция переменной самой от себя всегда равна 1.")
+```
+
+
+
+
+
+---
+## Анализ корреляционной матрицы
+
+```yaml
+type: MultipleChoiceExercise
+
+xp: 50
+
+key: 34e621648c
+
+
+
+```
+
+Какие выводы можно сделать, глядя на эту матрицу?
+
+`@instructions`
+- Качество шоколада больше всего зависит от его карамельности.
+- Между наличием шоколада и фруктов существует достаточно сильная отрицательная зависимость.
+- Чем больше твёрдость шоколадки, тем больше её цена.
+- Количество сахара больше всего зависит от количества нуги.
+
+`@hint`
+Посмотрите на цвет и интенсивность соответствующих показателей.
+
+`@pre_exercise_code`
+```{r}
+candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
+library(dplyr)
+library(corrplot)
+candy_cut <- select(candy, -competitorname)
+candy_cor <- cor(candy_cut)
+corrplot(candy_cor, method = "circle")
+```
+
+
+`@sct`
+```{r}
+msg1 <- "Попробуйте ещё раз."
+msg2 <- "Правильно!"
+msg4 <- "Попробуйте ещё раз."
+msg3 <- "Попробуйте ещё раз."
+
+test_mc(2, feedback_msgs = c(msg1, msg2, msg3, msg4))
+
+#General
+test_error()
+success_msg("Отлично! В следующем упражнении у Вас будет возможность поработать с интервалами.")
 ```
 
 
