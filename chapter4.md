@@ -578,14 +578,65 @@ candy_cut <- select(candy, -competitorname)
 #Постройте корреляционную матрицу
 candy_cor <- cor(candy_cut)
 candy_cor
-
 ```
-
 `@sct`
 ```{r}
 #General
 test_error()
-success_msg("Невероятно! Теперь Вы сможете сформировать представление о любом датасете!")
+success_msg("Безупречно! В следующем упражнении Вы научитесь извлекать из этой таблицы информацию о датасете и обнаруженных в нём зависимостях.")
 ```
+
+
+
+
+
+---
+## Insert exercise title here
+
+```yaml
+type: MultipleChoiceExercise
+
+xp: 50
+
+key: d6c1759f04
+
+
+
+```
+
+С какой переменной у pluribus самая сильная корреляция?
+
+`@instructions`
+- chocolate
+- bar
+- nougat
+- fruity
+
+`@hint`
+Обратите внимание на соответсвующие показатели в столбце переменной pluribus.
+
+`@pre_exercise_code`
+```{r}
+candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
+candy_cut <- select(candy, -competitorname)
+candy_cor <- cor(candy_cut)
+candy_cor
+```
+
+
+`@sct`
+```{r}
+msg1 <- "Попробуйте ещё раз."
+msg2 <- "Правильно!"
+msg4 <- "Попробуйте ещё раз."
+msg3 <- "Попробуйте ещё раз."
+
+test_mc(2, feedback_msgs = c(msg1, msg2, msg3, msg4))
+
+#General
+test_error()
+success_msg("Прекрасно! Однако выгружать каждый столбец из корреляционной матрицы, чтобы проследить зависимости переменных одной от другой, довольно громоздко…")
+```
+
 
 
