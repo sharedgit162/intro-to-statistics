@@ -386,7 +386,6 @@ test_object("crit_high", undefined_msg = msg_2, incorrect_msg = msg_2)
 test_object("high", undefined_msg = msg_3, incorrect_msg = msg_3)
 test_object("low", undefined_msg = msg_4, incorrect_msg = msg_4)
 test_error()
-success_msg("Вот это да! Вы осилили свой первый доверительный интервал. Двигаемся дальше!")
-test_error()
-success_msg("Great!")
+
+success_msg("Это было последнее задание в главе "Выборочные характеристики". ВЫ познакомились с самыми базовыми инструментами, которые помогут Вам анализировать реальные данные в будущем. Закрепим Ваши уменя в следующей главе. Удачи!")
 ```
