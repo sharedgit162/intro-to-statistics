@@ -83,18 +83,10 @@ ggplot(mapping = aes(x_ecdf, y_ecdf)) + geom_line() + labs(title = 'Эмпири
 ```
 `@sct`
 ```{r}
-msg_1 = "В качества аргумента `nrow()` передайте название датасета"
-msg_2 = "Обратиться к значениям переменной по названию можно с помощью `faithful$waiting`"
-msg_3 = "Функция распределения может принимать значения от 0 до 1."
-msg_4 = "Похоже, Вы неверно указали оси"
-msg_5 = "Убедитесь, что вы верно указали тип графика `geom_line()`"
 
 
-test_object("n", undefined_msg = msg_1, incorrect_msg = msg_1)
-test_object("x_ecdf", undefined_msg = msg_2, incorrect_msg = msg_2)
-test_object("y_ecdf",  undefined_msg = msg_3, incorrect_msg = msg_3)
-test_output_contains(ggplot(mapping = aes(x_ecdf, y_ecdf)), undefined_msg = msg_3, incorrect_msg = msg_3)
-test_functiont("geom_line()",  undefined_msg = msg_5, incorrect_msg = msg_5)
+
+
 test_error()
 success_msg("Great!")
 ```
@@ -104,7 +96,7 @@ success_msg("Great!")
 
 
 
-
+---
 ## Интерпретация доверительных интервалов
 
 ```yaml
