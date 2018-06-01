@@ -90,7 +90,7 @@ msg_3 = "Функция распределения может принимать
 test_object("x_ecdf", undefined_msg = msg_2, incorrect_msg = msg_2)
 test_object("y_ecdf",  undefined_msg = msg_3, incorrect_msg = msg_3)
 test_object("n", undefined_msg = msg_1, incorrect_msg = msg_1)
-test_output_contains(ggplot(mapping = aes(x_ecdf, y_ecdf)), undefined_msg = msg_3, incorrect_msg = msg_3)
+
 test_error()
 success_msg("Great!")
 ```

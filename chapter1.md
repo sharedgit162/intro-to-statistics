@@ -236,7 +236,7 @@ ex() %>% check_output("1.5", missing_msg = "Проверьте, вывели л�
 ex() %>% check_object("var_all") %>% check_equal()
 ex() %>% check_output("0.75", missing_msg = "Проверьте, вывели ли Вы значение `var_all`.")
 ex() %>% check_object("sd") %>% check_equal()
-success_msg("Превосходно! Как вы заметили, Биномиальное распределение естественно происходит из распределения Бернулли. В следующем задании Вы узнаете, как можно увидеть это.")
+success_msg("Превосходно! Как вы заметили, Биномиальное распределение естественно происходит из распределения Бернулли. В следующем задании Вы сможете увидеть это.")
 ```
 
 
@@ -328,5 +328,26 @@ theme(plot.title = element_text(hjust = 0.5))
 
 `@sct`
 ```{r}
-
+ex() %>% check_object("x") %>% check_equal()
+ex() %>% check_object("p") %>% check_equal()
+ex() %>% check_object("sencond_raw") %>% check_equal()
+ex() %>% check_object("mu") %>% check_equal()
+ex() %>% check_object("first_central") %>% check_equal()
+ex() %>% {
+  check_function(., "ggplot") %>% check_arg("data") %>% check_equal()
+  check_function(., "aes") %>% {
+    check_arg(., "x") %>% check_equal(eval = FALSE) 
+    check_arg(., "y") %>% check_equal(eval = FALSE)
+  }
+  check_function(., "stat_function")
+}
+ex() %>% {
+  check_function(., "ggplot") %>% check_arg("data") %>% check_equal()
+  check_function(., "aes") %>% {
+    check_arg(., "x") %>% check_equal(eval = FALSE) 
+    check_arg(., "y") %>% check_equal(eval = FALSE)
+  }
+  check_function(., "stat_function")
+}
+success_msg("Чудесно! Посмотрите на графики: распределение Бернулли – это одна "ступенька" Биномиального распределения! А как будет выглядеть график при очень большом числе "ступенек"?)
 ```
