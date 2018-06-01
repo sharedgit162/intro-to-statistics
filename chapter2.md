@@ -88,7 +88,7 @@ test_object("y_ecdf",  undefined_msg = msg_3, incorrect_msg = msg_3)
 test_object("n", undefined_msg = msg_1, incorrect_msg = msg_1)
 
 test_error()
-success_msg("Great!")
+success_msg("Ура! Первая функция построена! Насколько вероятно увидеть повторное извержение гейзера через час после предыдущего?")
 ```
 
 
@@ -230,7 +230,7 @@ test_object("cor_1", undefined_msg = msg_4, incorrect_msg = msg_4)
 test_object("cor_2", undefined_msg = msg_5, incorrect_msg = msg_5)
 
 test_error()
-success_msg("Great!")
+success_msg("Да Вы и правда молодец! Понимание устройства ковариационной матрицы - полезный навык, который поможем Вам лучше анализировать данные в будущем.")
 ```
 
 
@@ -297,13 +297,15 @@ high<- mu_hat + z_critic*sd(faithful$waiting)/sqrt(nrow(faithful))
 
 ```{r}
 
-msg_1 = "В качества аргумента `nrow()` передайте название датасета"
-msg_2 = "Обратиться к значениям переменной по названию можно с помощью `faithful$waiting`"
+msg_1 = "Не забывайте, что интервал двустороний."
+msg_2 = "Кажется, Вы забыли формулу доверительного интервала."
 msg_3 = "Функция распределения может принимать значения от 0 до 1."
 
-
+test_object("z_critic", undefined_msg = msg_1, incorrect_msg = msg_1)
+test_object("low", undefined_msg = msg_2, incorrect_msg = msg_2)
+test_object("high", undefined_msg = msg_2, incorrect_msg = msg_2)
 test_error()
-success_msg("Great!")
+success_msg("Вот это да! Вы осилили свой первый доверительный интервал. Двигаемся дальше!")
 ```
 
 
@@ -372,11 +374,19 @@ low   <- (df-1)*var(df$eruptions)/crit_high
 
 ```{r}
 
-msg_1 = "В качества аргумента `nrow()` передайте название датасета"
-msg_2 = "Обратиться к значениям переменной по названию можно с помощью `faithful$waiting`"
-msg_3 = "Функция распределения может принимать значения от 0 до 1."
+msg_1 = "Для хи-квадрат распределения число степеней свободы на единицу меньше числа наблюдений."
+msg_2 = "Обратите внимание, что Ваш интервал лежит между двумя "хвостами"."
+msg_3 = "Не забудьте, что для вычисления верхней границы, Вы должны поделить произведение выборочной дисперсии и числа степеней свободы на меньшее критическое значение."
+msg_4 = "Не забудьте, что для вычисления нижней границы, Вы должны поделить произведение выборочной дисперсии и числа степеней свободы на большее критическое значение."
 
 
+test_object("df", undefined_msg = msg_1, incorrect_msg = msg_1)
+test_object("crit_low", undefined_msg = msg_2, incorrect_msg = msg_2)
+test_object("crit_high", undefined_msg = msg_2, incorrect_msg = msg_2)
+test_object("high", undefined_msg = msg_3, incorrect_msg = msg_3)
+test_object("low", undefined_msg = msg_4, incorrect_msg = msg_4)
+test_error()
+success_msg("Вот это да! Вы осилили свой первый доверительный интервал. Двигаемся дальше!")
 test_error()
 success_msg("Great!")
 ```
