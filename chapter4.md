@@ -185,10 +185,8 @@ sd_chocolate
 median_price <- median(candy$pricepercent)
 median_price
 ```
-
 `@sct`
 ```{r}
-
 ex() %>% check_object("mean_caramel") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `mean_caramel`.")
 ex() %>% check_object("sd_chocolate") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `sd_chocolate`.")
 ex() %>% check_object("median_price") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `median_price`.")
@@ -337,8 +335,6 @@ key: 3c69ba8592
 - Постройте график гистограммы пользовательских оценок, установив количество bins, равных 10 (библиотека ggplot2 уже загружена)
 - Отобразите на ней среднее красным цветом (“red”) с прозрачностью 0.4, а медиану – зелёным (“green”) цветом с прозрачностью 0.2
 
-`@hint`
-
 
 `@pre_exercise_code`
 ```{r}
@@ -484,7 +480,6 @@ key: ca569da340
 candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
 library(ggplot2)
 ```
-
 `@sample_code`
 ```{r}
 # Квантиль 25% для доли сахара
@@ -517,7 +512,6 @@ hist_sugar <- ggplot(candy, aes(x = sugarpercent))+
 hist_sugar + 
 	geom_vline(xintercept = xmin, col = "red", size = 3) +
 	geom_vline(xintercept = xmax, col = "red", size = 3)
-
 ```
 `@sct`
 ```{r}
@@ -525,6 +519,38 @@ hist_sugar +
 test_error()
 success_msg("Невероятно! Теперь Вы сможете сформировать представление о любом датасете!")
 ```
+
+
+
+
+
+---
+## Подсчёт корреляции
+
+```yaml
+type: NormalExercise
+
+xp: 100
+
+key: 8096133bee
+
+
+
+```
+
+При анализе датасета бывает полезно посмотреть, какие переменные зависят друг от друга, потому что это может объяснить некоторые не очевидные следствия. Для этого Вам может понадобиться библиотека corrplot для удобной и наглядной работы с корреляционными матрицами. 
+Так как корреляция может существовать только для числовых значений, то перед работой с датасетом из него необходимо убрать все нечисловые и, возможно, категориальные переменные. Чтобы убрать из датасета `df` столбец под названием `col` можно подключить библиотеку `dplyr` и написать `df <- select(df, -col)`. К полученному датасету можно применять функцию `cor`, которая построит корреляционную матрицу.
+
+`@instructions`
+
+
+`@hint`
+
+
+
+
+
+
 
 
 
