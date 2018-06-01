@@ -111,9 +111,9 @@ library(psych)
 
 `@sct`
 ```{r}
-msg1 <- "Неверно. Посмотрите на значение n."
+msg1 <- "Попробуйте ещё раз. Посмотрите на значение n."
 msg2 <- "Не совсем. Посмотрите на максимальное значение переменной winpercent."
-msg4 <- "Неправильно. Посмотрите, сколько названий переменных Вы видите при анализе датасета."
+msg4 <- "Попробуйте ещё раз. Посмотрите, сколько названий переменных Вы видите при анализе датасета."
 msg3 <- "Замечательно! Теперь Вы познакомились с датасетом и готовы начать более подробный анализ."
 
 test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
@@ -160,26 +160,43 @@ candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/ma
 `@sample_code`
 ```{r}
 # Средняя оценка карамельности
-___(___)
+mean_caramel <- ___(___)
+mean_caramel
 
 # Дисперсия оценки шоколадности
-___(___)
+sd_chocolate <- ___(___)
+sd_chocolate
 
 # Медиана стоимости конфет
-___(___)
+median_price <- ___(___)
+median_price
 ```
 `@solution`
 ```{r}
 # Средняя оценка карамельности
-mean(candy$caramel)
+mean_caramel <- mean(candy$caramel)
+mean_caramel
 
 # Дисперсия оценки шоколадности
-sd(candy$chocolate)
+sd_chocolate <- sd(candy$chocolate)
+sd_chocolate
 
 # Медиана стоимости конфет
-median(candy$pricepercent)
+median_price <- median(candy$pricepercent)
+median_price
 ```
 
+`@sct`
+```{r}
+
+ex() %>% check_object("mean_caramel") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `mean_caramel`.")
+ex() %>% check_object("sd_chocolate") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `sd_chocolate`.")
+ex() %>% check_object("median_price") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `median_price`.")
+
+#General
+test_error()
+success_msg("Великолепно! Однако подобное преставление не очень наглядно, в следующих упражнениях у Вас будет возможность визуализировать некоторые показатели.")
+```
 
 
 
@@ -218,8 +235,9 @@ candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/ma
 ___(___)
 
 #построение гистограммы
-ggplot(data = ___, aes(x = ___)) +
+hist <- ggplot(data = ___, aes(x = ___)) +
 ___(binwidth = ___)
+hist
 ```
 `@solution`
 ```{r}
@@ -227,8 +245,9 @@ ___(binwidth = ___)
 library(ggplot2)
 
 #построение гистограммы
-ggplot(data = candy, aes(x = winpercent)) +
+hist <- ggplot(data = candy, aes(x = winpercent)) +
   geom_histogram(binwidth = 7)
+hist
 ```
 `@sct`
 ```{r}
@@ -236,7 +255,7 @@ ggplot(data = candy, aes(x = winpercent)) +
 test_student_typed("library(ggplot2)", not_typed_msg = "Возникла проблема с загрузкой библиотеки. Вы воспользовались функцией 'library()'?")
 
 #second instruction
-test_student_typed("ggplot(data = candy, aes(x = winpercent)) + geom_histogram(binwidth = 7)", not_typed_msg = "Возникла проблема с построением гистограммы. Проверьте, установлена ли правильная ширина bins и правильность анализируемой переменной.")
+ex() %>% check_object("hist") %>% check_equal(incorrect_msg = "Проверьте правильность построения графика.")
 
 #General
 test_error()
@@ -261,7 +280,7 @@ key: a6eaf579fe
 
 ```
 
-На какое из известных распределений приблизительно похоже распределений пользовательских оценок?
+На какое из известных распределений приблизительно похожа гистограмма пользовательских оценок?
 
 `@instructions`
 - Хи-квадрат
@@ -269,7 +288,7 @@ key: a6eaf579fe
 - Биномиальное с вероятностью 0.8
 
 `@hint`
-
+Если Вы забыли вид распределений, обратитесь ещё раз к материалам первой главы.
 
 `@pre_exercise_code`
 ```{r}
@@ -286,7 +305,7 @@ msg1 <- "Неверно."
 msg2 <- "Отлично!"
 msg3 <- "Неправильно."
 
-test_mc(c(2, 3), feedback_msgs = c(msg1, msg2, msg3))
+test_mc(2, feedback_msgs = c(msg1, msg2, msg3))
 
 #General
 test_error()
@@ -337,7 +356,7 @@ median_win <- ___(___)
 median_win
 
 # Гистограмма с отображёнными значениями среднего и медианы
-ggplot(___, aes(___)) +
+plot <- ggplot(___, aes(___)) +
    ___(bins = 10) +
   geom_vline(xintercept = ___, col = "___", alpha = ___) +
   geom_vline(xintercept = ___, col = "___", alpha = ___)
@@ -353,7 +372,7 @@ median_win <- median(candy$winpercent)
 median_win
 
 # Гистограмма с отображёнными значениями среднего и медианы
-ggplot(data = candy, aes(x = winpercent)) +
+plot <- ggplot(data = candy, aes(x = winpercent)) +
   geom_histogram(bins = 10) +
   geom_vline(xintercept = mean_win, col = "red", alpha = 0.4) +
   geom_vline(xintercept = median_win, col = "green", alpha = 0.2)
@@ -361,6 +380,10 @@ ggplot(data = candy, aes(x = winpercent)) +
 `@sct`
 ```{r}
 #General
+#ex() %>% check_object("mean_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `mean_win`.")
+#ex() %>% check_object("median_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `median_win`.")
+#ex() %>% check_object("plot") %>% check_equal(incorrect_msg = "Проверьте правильность построения графика.")
+
 test_error()
 success_msg("Бесподобно! В данном датасете медиана и среднее не сильно друг от друга отличаются, но это необходимо проверять, чтобы не допускать ошибок при анализе.")
 ```
