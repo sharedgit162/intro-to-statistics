@@ -233,10 +233,10 @@ hist
 ```
 `@solution`
 ```{r}
-#загрузка библиотеки
+# Загрузите библиотеку
 library(ggplot2)
 
-#построение гистограммы
+# Постройте гистограмму
 hist <- ggplot(data = candy, aes(x = winpercent)) +
   geom_histogram(binwidth = 7)
 hist
@@ -247,7 +247,7 @@ hist
 test_student_typed("library(ggplot2)", not_typed_msg = "Возникла проблема с загрузкой библиотеки. Вы воспользовались функцией 'library()'?")
 
 #second instruction
-ex() %>% check_object("hist") %>% check_equal(incorrect_msg = "Проверьте правильность построения графика.")
+test_student_typed("library(ggplot2)", not_typed_msg = "Проверьте правильность построения графика.")
 
 #General
 test_error()
@@ -267,7 +267,6 @@ lang: r
 xp: 50
 skills: 1
 key: a6eaf579fe
-
 
 
 ```
@@ -372,12 +371,8 @@ plot <- ggplot(data = candy, aes(x = winpercent)) +
 `@sct`
 ```{r}
 #General
-#ex() %>% check_object("mean_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `mean_win`.")
-#ex() %>% check_object("median_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `median_win`.")
-#ex() %>% check_object("plot") %>% check_equal(incorrect_msg = "Проверьте правильность построения графика.")
 
-test_error()
-success_msg("Бесподобно! В данном датасете медиана и среднее не сильно друг от друга отличаются, но это необходимо проверять, чтобы не допускать ошибок при анализе.")
+
 ```
 
 
