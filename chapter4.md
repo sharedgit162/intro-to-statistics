@@ -462,7 +462,7 @@ key: ca569da340
 
 
 ```
-
+НЕ РАБОТАЕТ
 Ещё одним полезным навыком для анализирования датасета является построение квантилей для числовых переменных. Вы можете воспользоваться функцией quantile(), которая выведет список из значений всех квантилей. Достать квантиль 50% можно двумя способами:
  `quantile(df$col)[2]`
 `quantile(df$col, p = 0.5)`
@@ -479,20 +479,21 @@ key: ca569da340
 ```{r}
 candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
 library(ggplot2)
-# Квантиль 25% для доли сахара
-xmin <- quantile(candy$sugarpercent)[2]
 
-# Квантиль 75% для доли сахара
-xmax = quantile(candy$sugarpercent)[4]
 ```
 `@sample_code`
 ```{r}
+# Квантиль 25% для доли сахара
+xmin <- quantile(___)
 
+# Квантиль 75% для доли сахара
+xmax <- ___
 
 # Постройте гистограмму для доли сахара
 hist_sugar <- ggplot(___, ___)+
   ____
 hist_sugar
+
 # Постройте интервал для квантилей 
 hist_sugar_quantile <- hist_sugar + 
 	geom_vline(xintercept = ___, col = ___, size = ___) +
@@ -501,7 +502,11 @@ hist_sugar_quantile
 ```
 `@solution`
 ```{r}
+# Квантиль 25% для доли сахара
+xmin <- quantile(candy$sugarpercent)[2]
 
+# Квантиль 75% для доли сахара
+xmax <- quantile(candy$sugarpercent)[4]
 
 # Постройте гистограмму для доли сахара
 hist_sugar <- ggplot(candy, aes(x = sugarpercent))+
@@ -527,9 +532,6 @@ success_msg("Невероятно! Теперь Вы сможете сформи
 ```
 
 
-
-
-
 ---
 ## Подсчёт корреляции
 
@@ -539,7 +541,6 @@ type: NormalExercise
 xp: 100
 
 key: 8096133bee
-
 
 
 ```
@@ -687,16 +688,16 @@ candy_cor <- cor(candy_cut)
 `@sample_code`
 ```{r}
 # Корреляционная матрица показателей конфет
-corrplot(___, method = "circle")
+corrplot(___, method = 'circle')
 ```
 `@solution`
 ```{r}
 # Корреляционная матрица показателей конфет
-corrplot(candy_cor, method = "circle")
+corrplot(candy_cor, method = 'circle')
 ```
 `@sct`
 ```{r}
-test_student_typed("corrplot(candy_cor, method = "circle")", not_typed_msg = "Возникла ошибка при построении матрицы.")
+test_student_typed("corrplot(candy_cor, method = 'circle')", not_typed_msg = "Возникла ошибка при построении матрицы.")
 
 #General
 test_error()
