@@ -214,12 +214,12 @@ high <- ___
 mu_hat<- faithful$waiting
 
 #Найдите критическое значение статистики
-z_critic <-qnorm(0.975)
+z_critic <- qnorm(0.975)
 
-#Посчитайте  границы доверительного интервала
-low<- mu_hat - z_critic*sd(faithful$waiting)/sqrt((faithful))
+#Посчитайте границы доверительного интервала
+low <- mu_hat - z_critic*sd(faithful$waiting)/sqrt((faithful))
 
-high<- mu_hat + z_critic*sd(faithful$waiting)/sqrt(nrow(faithful))
+high <- mu_hat + z_critic*sd(faithful$waiting)/sqrt(nrow(faithful))
 ```
 `@sct`
 ```{r}
