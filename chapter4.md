@@ -367,12 +367,18 @@ plot <- ggplot(data = candy, aes(x = winpercent)) +
   geom_histogram(bins = 10) +
   geom_vline(xintercept = mean_win, col = "red", alpha = 0.4) +
   geom_vline(xintercept = median_win, col = "green", alpha = 0.2)
+plot  
+
 ```
 `@sct`
 ```{r}
 #General
+#ex() %>% check_object("mean_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `mean_win`.")
+#ex() %>% check_object("median_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `median_win`.")
+#ex() %>% check_object("plot") %>% check_equal(incorrect_msg = "Проверьте правильность построения графика.")
 
-
+test_error()
+success_msg("Бесподобно! В данном датасете медиана и среднее не сильно друг от друга отличаются, но это необходимо проверять, чтобы не допускать ошибок при анализе.")
 ```
 
 
