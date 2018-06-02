@@ -414,8 +414,7 @@ library(ggplot2)
 `@sample_code`
 ```{r}
 # Построение графика плотности
-ggplot(___, ___) +
-  geom_density()
+ggplot(___, ___) + geom_density()
 density
 
 # Наложение графика плотности на гистограмму
@@ -427,8 +426,7 @@ double_plot
 `@solution`
 ```{r}
 # Построение графика плотности
-density <- ggplot(data = candy, aes(x = winpercent)) +
-  geom_density()
+density <- ggplot(data = candy, aes(x = winpercent)) + geom_density()
 density
 
 # Наложение графика плотности на гистограмму
