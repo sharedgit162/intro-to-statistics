@@ -479,14 +479,15 @@ key: ca569da340
 ```{r}
 candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
 library(ggplot2)
+# Квантиль 25% для доли сахара
+xmin <- quantile(candy$sugarpercent)[2]
+
+# Квантиль 75% для доли сахара
+xmax = quantile(candy$sugarpercent)[4]
 ```
 `@sample_code`
 ```{r}
-# Квантиль 25% для доли сахара
-xmin <- quantile(___)
 
-# Квантиль 75% для доли сахара
-xmax <- ___
 
 # Постройте гистограмму для доли сахара
 hist_sugar <- ggplot(___, ___)+
@@ -498,20 +499,19 @@ hist_sugar +
 ```
 `@solution`
 ```{r}
-# Квантиль 25% для доли сахара
-xmin <- quantile(candy$sugarpercent)[2]
 
-# Квантиль 75% для доли сахара
-xmax = quantile(candy$sugarpercent)[4]
 
 # Постройте гистограмму для доли сахара
 hist_sugar <- ggplot(candy, aes(x = sugarpercent))+
   geom_histogram(bins = 10)
+hist_sugar
 
 # Постройте интервал для квантилей 
-hist_sugar + 
+hist_sugar_quantile <- hist_sugar 
 	geom_vline(xintercept = xmin, col = "red", size = 3) +
 	geom_vline(xintercept = xmax, col = "red", size = 3)
+hist_sugar_quantile
+
 ```
 `@sct`
 ```{r}
@@ -519,6 +519,7 @@ hist_sugar +
 test_object("xmin") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `xmin`.")
 test_object("xmax") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `xmax`.")
 test_object("hist_sugar") %>% check_equal(incorrect_msg = "Проверьте правильность построения графика.")
+test_object("hist_sugar_quantile") %>% check_equal(incorrect_msg = "Проверьте правильность построения графика.")
 test_error()
 success_msg("Невероятно! Теперь Вы сможете сформировать представление о любом датасете!")
 ```
