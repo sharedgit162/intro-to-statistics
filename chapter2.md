@@ -211,7 +211,7 @@ high <- ___
 `@solution`
 ```{r}
 #Посчитайте среднее время ожидания извержения гейзера
-mu_hat<- faithful$waiting
+mu_hat <- faithful$waiting
 
 #Найдите критическое значение статистики
 z_critic <- qnorm(0.975)
