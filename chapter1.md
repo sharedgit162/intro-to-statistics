@@ -420,8 +420,53 @@ key: 2089d6638f
 install(tidyverse)
 library(tidyverse)
 ```
+`@sample_code`
+```{r}
+#Медиана
+qchisq(0.5, 3)
 
+#Мода
+f <- function(x) {
+  dchisq(x, df=3)
+}
+optimize(f, c(0, 100), maximum = TRUE)
 
+#Математическое ожидание
+f <- function(x) {
+  x*dchisq(x, 3)
+}
+mu <- integrate(f, -Inf, Inf)
+print(mu)
+
+#График функции плотности
+ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
+  stat_function(fun = dchisq, n = 100, 
+                args = list(df = 3))
+```
+`@solution`
+```{r}
+#Медиана
+qchisq(0.5, 3)
+
+#Мода
+f <- function(x) {
+  dchisq(x, df=3)
+}
+optimize(f, c(0, 100), maximum = TRUE)
+
+#Математическое ожидание
+f <- function(x) {
+  x*dchisq(x, 3)
+}
+mu <- integrate(f, -Inf, Inf)
+print(mu)
+
+#График функции плотности
+ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
+  stat_function(fun = dchisq, n = 100, 
+                args = list(df = 3))
+
+```
 
 
 
