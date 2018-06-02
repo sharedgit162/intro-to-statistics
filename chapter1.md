@@ -325,26 +325,26 @@ theme(plot.title = element_text(hjust = 0.5))
 ```{r}
 ex() %>% check_object("x") %>% check_equal()
 ex() %>% check_object("p") %>% check_equal()
-ex() %>% check_object("second_raw") %>% check_equal()
+ex() %>% check_object("sencond_raw") %>% check_equal()
 ex() %>% check_object("mu") %>% check_equal()
 ex() %>% check_object("first_central") %>% check_equal()
 ex() %>% {
   check_function(., "ggplot") %>% check_arg("data") %>% check_equal()
   check_function(., "aes") %>% {
     check_arg(., "x") %>% check_equal(eval = FALSE) 
+    check_arg(., "y") %>% check_equal(eval = FALSE)
   }
-  check_function(., "stat_function") %>% {
-    check_arg(., "args") %>% check_equal(eval = FALSE) 
+  check_function(., "stat_function")
 }
 ex() %>% {
   check_function(., "ggplot") %>% check_arg("data") %>% check_equal()
   check_function(., "aes") %>% {
     check_arg(., "x") %>% check_equal(eval = FALSE) 
+    check_arg(., "y") %>% check_equal(eval = FALSE)
   }
-  check_function(., "stat_function") %>% {
-    check_arg(., "args") %>% check_equal(eval = FALSE) 
+  check_function(., "stat_function")
 }
-success_msg("Чудесно! Посмотрите на графики: распределение Бернулли – это одна ступенька Биномиального распределения! А как будет выглядеть график при очень большом числе ступенек?")
+success_msg("Чудесно! Посмотрите на графики: распределение Бернулли – это одна "ступенька" Биномиального распределения! А как будет выглядеть график при очень большом числе "ступенек"?)
 ```
 
 
@@ -406,10 +406,11 @@ key: 2089d6638f
 
 ```
 
-
+Исследователь Геннадий переходит к работе с непрерывными распределениями. На данном этапе Вам предстоит помочь ему разобраться с распределением Хи-квадрат, а именно посмотреть, как соотносятся медиана, мода и математическое ожидание случайных величин с данным распределением.
 
 `@instructions`
-
+* Посчитайте медиану Хи-квадрат распределения с 3 степенями свободы, используя команду `qchisq(p, df)`, где p означает необходимую квантиль распределения, а df - число степеней свободы.
+* Посчитайте моду Хи-квадрат рас
 
 `@hint`
 
