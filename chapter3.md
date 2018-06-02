@@ -40,12 +40,6 @@ data("faithful")
 ```
 `@sample_code`
 ```{r}
-#Посчитайте среднюю продолжительность извержения гейзера "Старый Служака".
-mean_erupt <-  
-
-#Посчитайте количество наблюдений в датасете.
-n <- 
-
 #Несмещенная выборочная дисперсия продолжительности извержения гейзера по формуле.
 var_eval <- 
 
@@ -56,14 +50,8 @@ var_erupt <-
 ```
 `@solution`
 ```{r}
-#Посчитайте среднюю продолжительность извержения гейзера "Старый Служака".
-mean_erupt <- mean(faithful$eruptions) 
-
-#Посчитайте количество наблюдений в датасете.
-n <- nrow(faithful)
-
 #Несмещенная выборочная дисперсия продолжительности извержения гейзера по формуле.
-var_eval <- sum((faithful$eruptions - mean_erupt) ^ 2) / (n - 1)
+var_eval <- sum((faithful$eruptions - mean(faithful$eruptions)) ^ 2) / (nrow(faithful) - 1)
 var_eval
 
 #Несмещенная выборочная дисперсия продолжительности извержения гейзера с помощью функции.
@@ -72,14 +60,11 @@ var_erupt
 ```
 `@sct`
 ```{r}
-ex() %>% check_object("mean_erupt") %>% check_equal()
-
-ex() %>% check_object("n") %>% check_equal()
-
-ex() %>% check_object("var_eval") %>% check_equal(incorrect_msg = "Что-то не так со значением `var_eval`. Использовали ли вы функцию `sum()` для подсчета несмещенной дисперсии по формуле?")
-
-ex() %>% check_object("var_erupt") %>% check_equal(incorrect_msg = "Что-то не так со значением `var_erupt`.")
-
+test_student_typed("var_eval <- sum((faithful$eruptions - mean(faithful$eruptions)) ^ 2) / (nrow(faithful) - 1)", not_typed_msg = "Что-то не так со значением `var_eval`. Использовали ли вы функцию `sum()` для подсчета несмещенной дисперсии по формуле?")
+#fourth instruction
+test_student_typed("var_erupt <- var(faithful$eruptions)", not_typed_msg = "Что-то не так со значением `var_erupt`.")
+test_output_contains("1.302728", incorrect_msg = "Вывели ли вы значения дисперсий на экран?")
+test_error()
 success_msg("Превосходно! Как мы видим, значения оценки дисперсии, полученные различными способами, совпадают.")
 ```
 
