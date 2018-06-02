@@ -242,7 +242,7 @@ ggplot() +
 ```{r}
 
 #second instruction
-test_output_contains("normal <- rnorm(1000000, 0, 1)", incorrect_msg = "с помощью функции `rnorm()`?")
+test_student_typed("normal <- rnorm(1000000, 0, 1)", incorrect_msg = "Сгенерировали ли вы миллион наблюдений с `rnorm()`?")
 test_student_typed("quartile <- quantile(normal, 0.75)", not_typed_msg = "Обратите внимание на вторую инструкцию. Правильно ли вы посчитали третий квартиль?")
 
 #General
