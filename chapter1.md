@@ -477,12 +477,12 @@ ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
 #ex() %>% check_object("mode") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
 #ex() %>% check_object("mu") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
 #ex() %>% {
-  check_function(., "ggplot") %>% check_arg("data") %>% check_equal()
-  check_function(., "aes") %>% {
-    check_arg(., "x") %>% check_equal(eval = FALSE) 
-    check_arg(., "y") %>% check_equal(eval = FALSE)
+  check_function("ggplot") %>% check_arg("data") %>% check_equal()
+  check_function("aes") %>% {
+    check_arg("x") %>% check_equal(eval = FALSE) 
+    check_arg("y") %>% check_equal(eval = FALSE)
   }
-  check_function(., "stat_function")
+  check_function("stat_function")
 
 test_error()
 success_msg("Замечательно! Как Вы могли убедиться, значения медианы, моды и математического ожидания для распределения Хи-квадрат не совпадают!")
