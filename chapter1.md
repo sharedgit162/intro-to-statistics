@@ -262,6 +262,8 @@ $$E(X-E(X))^k$$
 
 * Модифицируйте параметр `size`, чтобы построить функцию распределения Бернулли.
 
+`@hint`
+
 
 `@pre_exercise_code`
 ```{r}
@@ -413,7 +415,11 @@ key: 2089d6638f
 `@hint`
 
 
-
+`@pre_exercise_code`
+```{r}
+install(tidyverse)
+library(tidyverse)
+```
 
 
 
