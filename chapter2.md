@@ -107,8 +107,6 @@ test_object("cov_matrix", undefined_msg = msg_1, incorrect_msg = msg_1)
 test_object("covariance", undefined_msg = msg_2, incorrect_msg = msg_2)
 test_object("cor_1", undefined_msg = msg_4, incorrect_msg = msg_4)
 test_object("cor_2", undefined_msg = msg_5, incorrect_msg = msg_5)
-
-test_error()
 success_msg("Да Вы и правда молодец!")
 ```
 
@@ -214,7 +212,6 @@ key: 7b93b38b69
 `@hint`
 - Количество наблюдений можно узнать с помощью функции `length()`. При уровне значимости $\alpha$ критические значения  соответствуют квантилям порядка $\frac{\alpha}{2}$ и $\left(1-\frac{\alpha}{2}\right)$.
 
-
 `@sample_code`
 ```{r}
 #Посчитайте число степеней свободы
@@ -317,13 +314,13 @@ ggplot(mapping = aes(x_ecdf, y_ecdf)) + geom_line() + labs(title = 'ECDF', x = '
 ```{r}
 msg_1 = "Число наблюдений равно числу строк в датасете"
 msg_2 = "Нужно получить отсортированные значения времени ожидания"
-msg_3 = "Какая область значений функции?"
+
 
 
 
 test_object("n", undefined_msg = msg_1, incorrect_msg = msg_1)
 test_object("x_ecdf", undefined_msg = msg_2, incorrect_msg = msg_2)
-test_object("y_ecdf", undefined_msg = msg_3, incorrect_msg = msg_3)
+
 
 test_error()
 success_msg("Вы мастер выборочных функций распределения!")
