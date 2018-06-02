@@ -182,9 +182,9 @@ median_price
 ```
 `@sct`
 ```{r}
-ex() %>% check_object("mean_caramel") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `mean_caramel`.")
-ex() %>% check_object("sd_chocolate") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `sd_chocolate`.")
-ex() %>% check_object("median_price") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `median_price`.")
+test_object("mean_caramel") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `mean_caramel`.")
+test_object("sd_chocolate") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `sd_chocolate`.")
+test_object("median_price") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `median_price`.")
 
 #General
 test_error()
@@ -247,7 +247,7 @@ hist
 test_student_typed("library(ggplot2)", not_typed_msg = "Возникла проблема с загрузкой библиотеки. Вы воспользовались функцией 'library()'?")
 
 #second instruction
-test_student_typed("library(ggplot2)", not_typed_msg = "Проверьте правильность построения графика.")
+test_object("hist", not_typed_msg = "Проверьте правильность построения графика.")
 
 #General
 test_error()
@@ -371,12 +371,12 @@ plot
 `@sct`
 ```{r}
 #General
-ex() %>% check_object("mean_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `mean_win`.")
-ex() %>% check_object("median_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `median_win`.")
+test_object("mean_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `mean_win`.")
+test_object("median_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `median_win`.")
 test_object("plot", incorrect_msg = "Проверьте правильность построения графика.")
 
 test_error()
-success_msg("Бесподобно!")
+success_msg("Бесподобно! В данном датасете медиана и среднее не сильно друг от друга отличаются, но это необходимо проверять, чтобы не допускать ошибок при анализе.")
 ```
 
 
@@ -590,8 +590,8 @@ candy_cor
 ```{r}
 test_student_typed("library(corrplot)", not_typed_msg = "Вы не подгрузили библиотеку corrplot. Внимательно прочтите инструкцию")
 test_student_typed("library(dplyr)", not_typed_msg = "Вы не подгрузили библиотеку dplyr. Внимательно прочтите инструкцию")
-ex() %>% check_object("candy_cut") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `candy_cut`.")
-ex() %>% check_object("candy_cor") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `candy_cor`.")
+test_object("candy_cut") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `candy_cut`.")
+test_object("candy_cor") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `candy_cor`.")
 
 #General
 test_error()
@@ -834,6 +834,12 @@ plot <- ggplot(data = candy, aes(x = winpercent)) +
 ```
 `@sct`
 ```{r}
+test_object("mean_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `mean_win`.")
+test_object("sd_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `sd_win`.")
+test_object("q") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `q`.")
+test_object("lower") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `lower`.")
+test_object("upper") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `upper`.")
+test_object("plot") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `plot`.")
 #General
 test_error()
 success_msg("Отлично! В следующем упражнении у Вас будет возможность поработать с интервалами.")
