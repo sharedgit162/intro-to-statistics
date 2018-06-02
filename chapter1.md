@@ -423,11 +423,11 @@ library(tidyverse)
 `@sample_code`
 ```{r}
 #Медиана
-qchisq(0.5, 3)
+q____(_, _)
 
 #Мода
-f <- function(x) {
-  dchisq(x, df=3)
+f <- function(_) {
+  d____(x, df=3)
 }
 optimize(f, c(0, 100), maximum = TRUE)
 
