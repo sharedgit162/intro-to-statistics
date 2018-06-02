@@ -427,21 +427,21 @@ q____(_, _)
 
 #Мода
 f <- function(_) {
-  d____(x, df=3)
+  d____(_, _)
 }
-optimize(f, c(0, 100), maximum = TRUE)
+optimize(_, c(0, 100), maximum = ____)
 
 #Математическое ожидание
-f <- function(x) {
-  x*dchisq(x, 3)
+f <- function(_) {
+  _*d____(_, _)
 }
-mu <- integrate(f, -Inf, Inf)
+mu <- integrate(_, _, _)
 print(mu)
 
 #График функции плотности
 ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
-  stat_function(fun = dchisq, n = 100, 
-                args = list(df = 3))
+  stat_function(fun = d____, n = 100, 
+                args = list(df = _))
 ```
 `@solution`
 ```{r}
@@ -450,7 +450,7 @@ qchisq(0.5, 3)
 
 #Мода
 f <- function(x) {
-  dchisq(x, df=3)
+  dchisq(x, 3)
 }
 optimize(f, c(0, 100), maximum = TRUE)
 
