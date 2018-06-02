@@ -327,14 +327,13 @@ theme(plot.title = element_text(hjust = 0.5))
 ```{r}
 ex() %>% check_object("x") %>% check_equal()
 ex() %>% check_object("p") %>% check_equal()
-ex() %>% check_object("sencond_raw") %>% check_equal()
+ex() %>% check_object("second_raw") %>% check_equal()
 ex() %>% check_object("mu") %>% check_equal()
 ex() %>% check_object("first_central") %>% check_equal()
 ex() %>% {
   check_function(., "ggplot") %>% check_arg("data") %>% check_equal()
   check_function(., "aes") %>% {
     check_arg(., "x") %>% check_equal(eval = FALSE) 
-    check_arg(., "y") %>% check_equal(eval = FALSE)
   }
   check_function(., "stat_function")
 }
@@ -342,11 +341,10 @@ ex() %>% {
   check_function(., "ggplot") %>% check_arg("data") %>% check_equal()
   check_function(., "aes") %>% {
     check_arg(., "x") %>% check_equal(eval = FALSE) 
-    check_arg(., "y") %>% check_equal(eval = FALSE)
   }
   check_function(., "stat_function")
 }
-success_msg("Чудесно! Посмотрите на графики: распределение Бернулли – это одна "ступенька" Биномиального распределения! А как будет выглядеть график при очень большом числе "ступенек"? Об этом вы узнаете в следующем видео.)
+success_msg("Чудесно! Посмотрите на графики: распределение Бернулли – это одна ступенька Биномиального распределения! А как будет выглядеть график при очень большом числе ступенек? Об этом вы узнаете в следующем видео.")
 ```
 
 
