@@ -243,7 +243,15 @@ hist
 ```
 `@sct`
 ```{r}
+#first instruction
+test_student_typed("library(ggplot2)", not_typed_msg = "Возникла проблема с загрузкой библиотеки. Вы воспользовались функцией 'library()'?")
 
+#second instruction
+ex() %>% check_object("hist") %>% check_equal(incorrect_msg = "Проверьте правильность построения графика.")
+
+#General
+test_error()
+success_msg("Превосходно! Вы можете попрактиковаться в выборе ширины bin и посмотреть, как от этого меняется результат.")
 ```
 
 
