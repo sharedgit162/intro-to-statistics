@@ -417,7 +417,6 @@ key: 2089d6638f
 
 `@pre_exercise_code`
 ```{r}
-install(tidyverse)
 library(tidyverse)
 ```
 `@sample_code`
