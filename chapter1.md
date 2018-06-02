@@ -423,20 +423,22 @@ library(tidyverse)
 `@sample_code`
 ```{r}
 #Медиана
-q____(_, _)
+med <- q____(_, _)
+med
 
 #Мода
 f <- function(_) {
   d____(_, _)
 }
-optimize(_, c(0, 100), maximum = ____)
+mode <- optimize(_, c(0, 100), maximum = ____)
+mode
 
 #Математическое ожидание
 f <- function(_) {
   _*d____(_, _)
 }
 mu <- integrate(_, _, _)
-print(mu)
+mu
 
 #График функции плотности
 ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
@@ -467,7 +469,16 @@ ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
                 args = list(df = 3))
 
 ```
+`@sct`
+```{r}
+#General
+#ex() %>% check_object("med") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления медианы .")
+#ex() %>% check_object("median_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `median_win`.")
+#ex() %>% check_object("plot") %>% check_equal(incorrect_msg = "Проверьте правильность построения графика.")
 
+test_error()
+success_msg("Бесподобно! В данном датасете медиана и среднее не сильно друг от друга отличаются, но это необходимо проверять, чтобы не допускать ошибок при анализе.")
+```
 
 
 
