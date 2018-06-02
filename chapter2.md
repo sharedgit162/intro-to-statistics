@@ -83,9 +83,10 @@ ggplot(mapping = aes(x_ecdf, y_ecdf)) + geom_line() + labs(title = 'Эмпири
 msg_1 = "В качества аргумента `nrow()` передайте название датасета"
 msg_2 = "Обратиться к значениям переменной по названию можно с помощью `faithful$waiting`"
 msg_3 = "Функция распределения может принимать значения от 0 до 1."
+test_object("n", undefined_msg = msg_1, incorrect_msg = msg_1)
 test_object("x_ecdf", undefined_msg = msg_2, incorrect_msg = msg_2)
 test_object("y_ecdf",  undefined_msg = msg_3, incorrect_msg = msg_3)
-test_object("n", undefined_msg = msg_1, incorrect_msg = msg_1)
+
 
 test_error()
 success_msg("Ура! Первая функция построена! Насколько вероятно увидеть повторное извержение гейзера через час после предыдущего?")
