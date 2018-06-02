@@ -199,32 +199,34 @@ p_1 <- choose(3, 1)*0.5*(0.5^2)
 p_2 <- dbinom(2, 3, 0.5)
 
 # Математическое ожидание одного падения
-#x_single <- c(0, 1)
-#p_single <- c(0.5, 0.5)
-#sum(x_single * p_single)
+x_single <- c(0, 1)
+p_single <- c(0.5, 0.5)
+mu_single <- sum(x_single * p_single)
+mu_single
 
 # Математическое ожидание всех падений
 x_all <- c(0, 1, 2, 3)
 p_all <- c(0.125, p_1, p_2, 0.125)
 mu_all <- sum(x_all*p_all)
+mu_all
 
 # Дисперсия всех падений
-sum((x_all - mu_all)^2 * p_all)
-
+var_all <- sum((x_all - mu_all)^2 * p_all)
+var_all
 
 # Стандартное отклонение
-#sqrt(var_all)
+sqrt(var_all)
 ```
 `@sct`
 ```{r}
-#ex() %>% check_object("p_1") %>% check_equal()
-#ex() %>% check_object("p_2") %>% check_equal()
-#ex() %>% check_output("0.5", missing_msg = "Проверьте, вывели ли Вы значение `mu_single`.")
-#ex() %>% check_object("mu_all") %>% check_equal()
-#ex() %>% check_output("1.5", missing_msg = "Проверьте, вывели ли Вы значение `mu_all`.")
-#ex() %>% check_object("var_all") %>% check_equal()
-#ex() %>% check_output("0.75", missing_msg = "Проверьте, вывели ли Вы значение `var_all`.")
-#ex() %>% check_object("sd") %>% check_equal()
+ex() %>% check_object("p_1") %>% check_equal()
+ex() %>% check_object("p_2") %>% check_equal()
+ex() %>% check_output("0.5", missing_msg = "Проверьте, вывели ли Вы значение `mu_single`.")
+ex() %>% check_object("mu_all") %>% check_equal()
+ex() %>% check_output("1.5", missing_msg = "Проверьте, вывели ли Вы значение `mu_all`.")
+ex() %>% check_object("var_all") %>% check_equal()
+ex() %>% check_output("0.75", missing_msg = "Проверьте, вывели ли Вы значение `var_all`.")
+ex() %>% check_object("sd") %>% check_equal()
 success_msg("Превосходно! Как вы заметили, Биномиальное распределение естественно происходит из распределения Бернулли. В следующем задании Вы сможете увидеть это.")
 ```
 

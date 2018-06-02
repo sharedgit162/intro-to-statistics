@@ -68,16 +68,14 @@ var_erupt <- var(faithful$eruptions)
 ```
 `@sct`
 ```{r}
-test_student_typed("mean_erupt <- mean(faithful$eruptions)", not_typed_msg = "Что-то не так с `mean_erupt`. Вызывали ли вы функцию `mean()` для подсчета среднего?")
+ex() %>% check_object("mean_erupt") %>% check_equal(incorrect_msg = "Что-то не так с `mean_erupt`. Вызывали ли вы функцию `mean()` для подсчета среднего?")
 
-test_student_typed("n <- nrow(faithful)", not_typed_msg = "Что-то не так с `n`.")
+ex() %>% check_object("n") %>% check_equal(incorrect_msg = "Что-то не так с `n`.")
 
 ex() %>% check_object("var_eval") %>% check_equal(incorrect_msg = "Что-то не так со значением `var_eval`. Использовали ли вы функцию `sum()` для подсчета несмещенной дисперсии по формуле?")
 
 ex() %>% check_object("var_erupt") %>% check_equal(incorrect_msg = "Что-то не так со значением `var_erupt`.")
 
-#General
-test_error()
 success_msg("Превосходно! Как мы видим, значения оценки дисперсии, полученные различными способами, совпадают.")
 ```
 
