@@ -211,22 +211,22 @@ mu_all <- sum(x_all*p_all)
 mu_all
 
 # Дисперсия всех падений
-var_all <- sum((x_all - mu_all)^2 * p_all)
-var_all
+var_all <- sum((x_all-mu_all)**2 * p_all)
+
 
 # Стандартное отклонение
-sqrt(var_all)
+#sqrt(var_all)
 ```
 `@sct`
 ```{r}
 ex() %>% check_object("p_1") %>% check_equal()
 ex() %>% check_object("p_2") %>% check_equal()
-ex() %>% check_output("0.5", missing_msg = "Проверьте, вывели ли Вы значение `mu_single`.")
-ex() %>% check_object("mu_all") %>% check_equal()
-ex() %>% check_output("1.5", missing_msg = "Проверьте, вывели ли Вы значение `mu_all`.")
-ex() %>% check_object("var_all") %>% check_equal()
-ex() %>% check_output("0.75", missing_msg = "Проверьте, вывели ли Вы значение `var_all`.")
-ex() %>% check_object("sd") %>% check_equal()
+#ex() %>% check_output("0.5", missing_msg = "Проверьте, вывели ли Вы значение `mu_single`.")
+#ex() %>% check_object("mu_all") %>% check_equal()
+#ex() %>% check_output("1.5", missing_msg = "Проверьте, вывели ли Вы значение `mu_all`.")
+#ex() %>% check_object("var_all") %>% check_equal()
+#ex() %>% check_output("0.75", missing_msg = "Проверьте, вывели ли Вы значение `var_all`.")
+#ex() %>% check_object("sd") %>% check_equal()
 success_msg("Превосходно! Как вы заметили, Биномиальное распределение естественно происходит из распределения Бернулли. В следующем задании Вы сможете увидеть это.")
 ```
 
