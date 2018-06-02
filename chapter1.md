@@ -333,14 +333,16 @@ ex() %>% {
   check_function(., "aes") %>% {
     check_arg(., "x") %>% check_equal(eval = FALSE) 
   }
-  check_function(., "stat_function")
+  check_function(., "stat_function") %>% {
+    check_arg(., "args") %>% check_equal(eval = FALSE) 
 }
 ex() %>% {
   check_function(., "ggplot") %>% check_arg("data") %>% check_equal()
   check_function(., "aes") %>% {
     check_arg(., "x") %>% check_equal(eval = FALSE) 
   }
-  check_function(., "stat_function")
+  check_function(., "stat_function") %>% {
+    check_arg(., "args") %>% check_equal(eval = FALSE) 
 }
 success_msg("Чудесно! Посмотрите на графики: распределение Бернулли – это одна ступенька Биномиального распределения! А как будет выглядеть график при очень большом числе ступенек?")
 ```
