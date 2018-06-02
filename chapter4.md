@@ -492,10 +492,12 @@ xmax = quantile(candy$sugarpercent)[4]
 # Постройте гистограмму для доли сахара
 hist_sugar <- ggplot(___, ___)+
   ____
+hist_sugar
 # Постройте интервал для квантилей 
-hist_sugar + 
+hist_sugar_quantile <- hist_sugar + 
 	geom_vline(xintercept = ___, col = ___, size = ___) +
 	geom_vline(___)
+hist_sugar_quantile
 ```
 `@solution`
 ```{r}
