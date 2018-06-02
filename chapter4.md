@@ -763,7 +763,7 @@ success_msg("Отлично! В следующем упражнении у Ва�
 
 
 ---
-## Изображение доверительного интервала
+## Построение доверительного интервала
 
 ```yaml
 type: NormalExercise
@@ -782,14 +782,12 @@ key: 427cb183aa
 - Высчитайте среднее пользовательских оценок.
 - Высчитайте стандартное отклонение пользовательских оценок.
 - По формуле вычислите нижнее и верхнее значение доверительного интервала.
-- На гистограмме с bins = 10 изобразите двумя красными линиями интервал пользовательских оценок.
 
 `@hint`
 - Для 95% доверительного интервала значение, передаваемое в функцию `qnorm()` не равно 0.95,
 
 `@pre_exercise_code`
 ```{r}
-library(ggplot2)
 candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
 ```
 `@sample_code`
@@ -807,10 +805,6 @@ q <- qnorm(___)
 lower <- ___ - ___*___
 upper <- ___
 
-plot <- ggplot(___) +
-  geom_histogram(bins = ___) +
-  geom_vline(xintercept = ___, col = ___) +
-  geom_vline(___)
 ```
 `@solution`
 ```{r}
@@ -826,11 +820,6 @@ q <- qnorm(p = 0.975)
 # Вычислите нижнее и верхнее значение доверительного интервала 
 lower <- mean_win - q*sd_win
 upper <- mean_win + q*sd_win
-
-plot <- ggplot(data = candy, aes(x = winpercent)) +
-  geom_histogram(bins = 10) +
-  geom_vline(xintercept = lower, col = "red") +
-  geom_vline(xintercept = upper, col = "red")
 ```
 `@sct`
 ```{r}
@@ -839,7 +828,7 @@ test_object("sd_win") %>% check_equal(incorrect_msg = "Проверьте пра
 test_object("q") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `q`.")
 test_object("lower") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `lower`.")
 test_object("upper") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `upper`.")
-test_object("plot") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `plot`.")
+
 #General
 test_error()
 success_msg("Отлично! В следующем упражнении у Вас будет возможность поработать с интервалами.")
@@ -849,6 +838,61 @@ success_msg("Отлично! В следующем упражнении у Ва�
 
 
 
+
+---
+## Изображение доверительного интервала
+
+```yaml
+type: NormalExercise
+key: 106eb1bdad
+lang: r
+xp: 100
+skills: 1
+```
+
+
+`@instructions`
+- На гистограмме с bins = 10 изобразите двумя красными линиями интервал пользовательских оценок (lower и upper, вычисленные ранее, уже загружены)
+
+`@hint`
+В качестве `xintercept` установите загруженные переменные lower и upper, а цвет установите равным "red".
+
+`@pre_exercise_code`
+```{r}
+candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
+mean_win <- mean(candy$winpercent)
+sd_win <- sd(candy$winpercent)
+q <- qnorm(p = 0.975)
+lower <- mean_win - q*sd_win
+upper <- mean_win + q*sd_win
+```
+
+`@sample_code`
+```{r}
+plot <- ggplot(___) +
+  geom_histogram(bins = ___) +
+  geom_vline(xintercept = ___, col = ___) +
+  geom_vline(___)
+plot
+```
+
+`@solution`
+```{r}
+plot <- ggplot(data = candy, aes(x = winpercent)) +
+  geom_histogram(bins = 10) +
+  geom_vline(xintercept = lower, col = "red") +
+  geom_vline(xintercept = upper, col = "red")
+plot
+```
+
+`@sct`
+```{r}
+test_object("plot") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `plot`.")
+
+#General
+test_error()
+success_msg("Отлично! В следующем упражнении у Вас будет возможность поработать с интервалами.")
+```
 ---
 ## Построение доверительных интервалов для дисперсии
 
