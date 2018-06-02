@@ -210,8 +210,9 @@ p_all <- c(0.125, p_1, p_2, 0.125)
 mu_all <- sum(x_all*p_all)
 mu_all
 
+
 # Дисперсия всех падений
-var_all <- sum((x_all-mu_all)**2 * p_all)
+var_all <- sum(((x_all-mu_all)^2 * p_all)
 
 
 # Стандартное отклонение

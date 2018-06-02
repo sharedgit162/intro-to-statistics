@@ -36,10 +36,12 @@ key: f3e9bc7cb4
 `@pre_exercise_code`
 ```{r}
 library(datasets)
-data("faithful")
 ```
 `@sample_code`
 ```{r}
+#Загрузим данные из встроенной библиотеки.
+data("faithful")
+
 #Посчитайте среднюю продолжительность извержения гейзера "Старый Служака".
 mean_erupt <-  
 
@@ -56,6 +58,9 @@ var_erupt <-
 ```
 `@solution`
 ```{r}
+#Загрузим данные из встроенной библиотеки.
+data("faithful")
+
 #Посчитайте среднюю продолжительность извержения гейзера "Старый Служака".
 mean_erupt <- mean(faithful$eruptions) 
 
