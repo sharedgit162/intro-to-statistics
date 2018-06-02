@@ -57,7 +57,7 @@ x_ecdf <- sort(___, decreasing = FALSE)
 y_ecdf <- seq(from =__ , to =__, by=___ )/n
 
 #Постройте выборочную функцию распределения
-ggplot(mapping = aes(x=__ ,y=___  )) + __ + labs(title = 'Эмпирическая функция распределения', x = 'Время ожидания', y = 'F(x)')+theme(plot.title = element_text(hjust = 0.5))
+ggplot(mapping = aes(x=__ ,y=___  )) + __ + labs(title = 'Empirical cumulative distribution function', x = 'Waiting time', y = 'F(x)')+theme(plot.title = element_text(hjust = 0.5))
 ```
 `@solution`
 ```{r}
@@ -86,6 +86,12 @@ msg_3 = "Функция распределения может принимать
 test_object("n", undefined_msg = msg_1, incorrect_msg = msg_1)
 test_object("x_ecdf", undefined_msg = msg_2, incorrect_msg = msg_2)
 test_object("y_ecdf",  undefined_msg = msg_3, incorrect_msg = msg_3)
+ex() %>% {
+  check_function(., "ggplot") %>% check_arg("data") %>% check_equal()
+  check_function(., "aes") %>% {
+    check_arg(., "x") %>% check_equal(eval = FALSE) 
+    check_arg(., "y") %>% check_equal(eval = FALSE)
+  }
 
 
 test_error()
