@@ -375,7 +375,7 @@ plot
 #General
 ex() %>% check_object("mean_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `mean_win`.")
 ex() %>% check_object("median_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `median_win`.")
-ex() %>% check_object("plot") %>% check_equal(incorrect_msg = "Проверьте правильность построения графика.")
+test_object("plot", incorrect_msg = "Проверьте правильность построения графика.")
 
 test_error()
 success_msg("Бесподобно!")
