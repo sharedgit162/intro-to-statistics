@@ -363,10 +363,7 @@ median_win <- median(candy$winpercent)
 median_win
 
 # Гистограмма с отображёнными значениями среднего и медианы
-plot <- ggplot(data = candy, aes(x = winpercent)) +
-  geom_histogram(bins = 10) +
-  geom_vline(xintercept = mean_win, col = "red", alpha = 0.4) +
-  geom_vline(xintercept = median_win, col = "green", alpha = 0.2)
+plot <- ggplot(data = candy, aes(x = winpercent)) + geom_histogram(bins = 10) + geom_vline(xintercept = mean_win, col = "red", alpha = 0.4) + geom_vline(xintercept = median_win, col = "green", alpha = 0.2)
 plot  
 
 ```
