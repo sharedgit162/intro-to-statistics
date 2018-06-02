@@ -161,6 +161,8 @@ key: d9a2b6ac19
 
 * Рассчитайте стандартное отклонение всех результатов эксперимента и сохраните полученный ответ в переменную `sd`. Команда `sqrt()` может в этом пригодиться.
 
+`@hint`
+
 
 
 `@sample_code`
@@ -417,8 +419,7 @@ key: 2089d6638f
 
 `@pre_exercise_code`
 ```{r}
-instal("tidyverse")
-library(tidyverse)
+library(ggplot2)
 ```
 `@sample_code`
 ```{r}
