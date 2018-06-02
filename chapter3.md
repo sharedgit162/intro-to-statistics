@@ -247,7 +247,7 @@ test_student_typed("quartile <- quantile(normal, 0.75)", not_typed_msg = "Обр
 
 #General
 test_error()
-success_msg("Отлично! Так держать!")
+success_msg("Отлично! Так держать! 0.75-квантиль обозначен красной линией на построенном графике функции плотности.")
 ```
 
 
