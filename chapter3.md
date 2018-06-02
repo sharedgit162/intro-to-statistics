@@ -72,6 +72,8 @@ var_erupt
 ```
 `@sct`
 ```{r}
+ex() %>% check_object("mean_erupt") %>% check_equal()
+
 ex() %>% check_object("n") %>% check_equal()
 
 ex() %>% check_object("var_eval") %>% check_equal(incorrect_msg = "Что-то не так со значением `var_eval`. Использовали ли вы функцию `sum()` для подсчета несмещенной дисперсии по формуле?")
