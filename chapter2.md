@@ -105,12 +105,6 @@ cov_matrix <- ___
 #Найдите ковариацию между двумя признаками
 covariance <- ___
 
-#Найдите стандартное отклонение числа извержений
-sd_erupt <- ___
-
-#Найдите стандартное отклонение времени ожидания извержения гейзера
-sd_wait <- ___
-
 #Посчитатйте корреляцию времению ожидания и числа извержений
 cor_1 <- ___
 
@@ -129,14 +123,8 @@ cov_matrix <-cov(faithful)
 #Найдите ковариацию между двумя признаками
 covariance <- cov_matrix[2,1]
 
-#Найдите стандартное отклонение числа извержений
-sd_erupt <- sqrt(cov_matrix[1,1])
-
-#Найдите стандартное отклонение времени ожидания извержения гейзера
-sd_wait <- sqrt(cov_matrix[2,2])
-
 #Посчитатйте корреляцию времению ожидания и числа извержений
-cor_1 <- covariance/(sd_erupt*sd_wait)
+cor_1 <- covariance/( sqrt(cov_matrix[1,1])*sqrt(cov_matrix[2,2]))
 
 #В дальнейшем упрощайте себе жизнь, используя встроенную функцию корреляции
 cor_2 <- cor(faithful$eruptions, faithful$waiting)
@@ -145,14 +133,11 @@ cor_2 <- cor(faithful$eruptions, faithful$waiting)
 ```{r}
 msg_1 = "Убедитесь, что Вы передали функции верный аргумент."
 msg_2 = "Вам нужны элементы матрицы, не лежащие на диагонали."
-msg_3 = "Извлечь квадртаный корень из числа можно при помощи функции sqrt()"
 msg_4 = "Просмотрите формулу корреляции еще раз"
 msg_5 = "В качестве аргументов передайте функции два вектора со значениями признаков"
 
 test_object("cov_matrix", undefined_msg = msg_1, incorrect_msg = msg_1)
 test_object("covariance", undefined_msg = msg_2, incorrect_msg = msg_2)
-test_object("sd_erupt", undefined_msg = msg_3, incorrect_msg = msg_3)
-test_object("sd_wait", undefined_msg = msg_3, incorrect_msg = msg_3)
 test_object("cor_1", undefined_msg = msg_4, incorrect_msg = msg_4)
 test_object("cor_2", undefined_msg = msg_5, incorrect_msg = msg_5)
 
@@ -211,15 +196,15 @@ high <- ___
 `@solution`
 ```{r}
 #Посчитайте среднее время ожидания извержения гейзера
-mu_hat <- faithful$waiting
+mu_hat<- faithful$waiting
 
 #Найдите критическое значение статистики
-z_critic <- qnorm(0.975)
+z_critic <-qnorm(0.975)
 
-#Посчитайте границы доверительного интервала
-low <- mu_hat - z_critic*sd(faithful$waiting)/sqrt((faithful))
+#Посчитайте  границы доверительного интервала
+low<- mu_hat - z_critic*sd(faithful$waiting)/sqrt((faithful))
 
-high <- mu_hat + z_critic*sd(faithful$waiting)/sqrt(nrow(faithful))
+high<- mu_hat + z_critic*sd(faithful$waiting)/sqrt(nrow(faithful))
 ```
 `@sct`
 ```{r}
@@ -270,11 +255,6 @@ $\frac{\alpha}{2}$ и $\left(1-\frac{\alpha}{2}\right)$.
 #Посчитайте число степеней свободы
 df <- ___
 
-#Посчитайте критические значения
-crit_low <- ___
-crit_high <- ___
-
-
 #Вычислите границы 90% доверительного интервала
 high <- ___
 low  <- ___
@@ -284,25 +264,14 @@ low  <- ___
 #Посчитайте число степеней свободы
 df <- length(df$eruptions) - 1
 
-#Посчитайте критические значения
-crit_low <- qchisq(0.95, df)
-crit_high <- qchisq(0.05, df)
-
-
 #Вычислите границы 90% доверительного интервала
-high  <- (df-1)*var(df$eruptions)/crit_low
-low   <- (df-1)*var(df$eruptions)/crit_high
+high  <- df*var(df$eruptions)/qchisq(0.95, df)
+low   <- df*var(df$eruptions)/cqchisq(0.05, df)
 ```
 `@sct`
 ```{r}
 msg_1 = "Для хи-квадрат распределения число степеней свободы на единицу меньше числа наблюдений."
-msg_2 = "Обратите внимание, что Ваш интервал лежит между двумя "хвостами"."
-
-
 test_object("df", undefined_msg = msg_1, incorrect_msg = msg_1)
-test_object("crit_low", undefined_msg = msg_2, incorrect_msg = msg_2)
-test_object("crit_high", undefined_msg = msg_2, incorrect_msg = msg_2)
-
 test_error()
 
 success_msg("Ого! Это было последне задание в главе "Выборочные характеристики".)
