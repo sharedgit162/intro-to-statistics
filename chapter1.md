@@ -472,9 +472,9 @@ ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
 `@sct`
 ```{r}
 #General
-#ex() %>% check_object("med") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления медианы .")
-#ex() %>% check_object("median_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `median_win`.")
-#ex() %>% check_object("plot") %>% check_equal(incorrect_msg = "Проверьте правильность построения графика.")
+#ex() %>% check_object("med") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления медианы с помощью команды `chisq(p, df)`.")
+#ex() %>% check_object("mode") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
+#ex() %>% check_object("mu") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
 
 test_error()
 success_msg("Бесподобно! В данном датасете медиана и среднее не сильно друг от друга отличаются, но это необходимо проверять, чтобы не допускать ошибок при анализе.")
