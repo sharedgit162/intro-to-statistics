@@ -247,7 +247,7 @@ hist
 test_student_typed("library(ggplot2)", not_typed_msg = "Возникла проблема с загрузкой библиотеки. Вы воспользовались функцией 'library()'?")
 
 #second instruction
-test_object("hist", not_typed_msg = "Проверьте правильность построения графика.")
+test_object('hist', not_typed_msg = 'Проверьте правильность построения графика.')
 
 #General
 test_error()
