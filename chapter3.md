@@ -31,7 +31,7 @@ key: f3e9bc7cb4
 - Посчитайте несмещенную выборочную дисперсию продолжительности извержения гейзера (`faithful$eruptions`) **с помощью функции** `var()`. Полученный результат сохраните в переменную `var_erupt`. Сравните полученные результаты.
 
 `@hint`
-Для подсчета несмещенной выборочной дисперсии по формуле необходимо `sum((faithful$eruptions - mean_erupt) ** 2) / (n - 1)`.
+Для подсчета несмещенной выборочной дисперсии по формуле необходимо `sum((faithful$eruptions - mean_erupt) ^ 2) / (n - 1)`.
 
 `@pre_exercise_code`
 ```{r}
@@ -61,7 +61,7 @@ mean_erupt <- mean(faithful$eruptions)
 n <- nrow(faithful)
 
 #Несмещенная выборочная дисперсия продолжительности извержения гейзера по формуле.
-var_eval <- sum((faithful$eruptions - mean_erupt) ** 2) / (n - 1)
+var_eval <- sum((faithful$eruptions - mean_erupt) ^ 2) / (n - 1)
 
 #Несмещенная выборочная дисперсия продолжительности извержения гейзера с помощью функции.
 var_erupt <- var(faithful$eruptions)
