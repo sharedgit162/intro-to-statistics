@@ -234,9 +234,9 @@ candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/ma
 ___(___)
 
 #построение гистограммы
-hist <- ggplot(data = ___, aes(x = ___)) +
+ggplot(data = ___, aes(x = ___)) +
 ___(binwidth = ___)
-hist
+
 ```
 `@solution`
 ```{r}
@@ -244,17 +244,24 @@ hist
 library(ggplot2)
 
 # Постройте гистограмму
-hist <- ggplot(data = candy, aes(x = winpercent)) +
+ggplot(data = candy, aes(x = winpercent)) +
   geom_histogram(binwidth = 7)
-hist
 ```
 `@sct`
 ```{r}
 #first instruction
 test_student_typed("library(ggplot2)", not_typed_msg = "Возникла проблема с загрузкой библиотеки. Вы воспользовались функцией 'library()'?")
 
+ex() %>% {
+  check_function(., "ggplot") %>% check_arg("data") %>% check_equal()
+  check_function(., "aes") %>% {
+    check_arg(., "x") %>% check_equal(eval = FALSE) 
+  }
+  check_function(., "geom_histogram") %>% check_arg("binwidth") %>% check_equal()
+}
+
 #second instruction
-test_object('hist', incorrect_msg  = 'Проверьте правильность построения графика.')
+#test_object('hist', incorrect_msg  = 'Проверьте правильность построения графика.')
 
 #General
 test_error()
