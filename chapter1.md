@@ -429,7 +429,7 @@ key: 7f571b03f8
 
 
 ---
-## Характеристики распределения Хи-квадрат
+## Хи-квадрат
 
 ```yaml
 type: NormalExercise
@@ -453,10 +453,7 @@ key: 2089d6638f
 `@hint`
 Обратите внимание на правильность написания команды `dchisq(x, df)`, где `df` - это число степеней свободы, а также на формулу для расчета математического ожидания.
 
-`@pre_exercise_code`
-```{r}
-library(ggplot2)
-```
+
 `@sample_code`
 ```{r}
 #Медиана
@@ -477,6 +474,10 @@ f <- function(_) {
 mu <- integrate(_, _, _)
 mu
 
+#График функции плотности
+ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
+  stat_function(fun = dchisq, n = 100, 
+                args = list(df = 3))
 ```
 `@solution`
 ```{r}
@@ -496,6 +497,10 @@ f <- function(x) {
 mu <- integrate(f, -Inf, Inf)
 mu
 
+#График функции плотности
+ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
+  stat_function(fun = dchisq, n = 100, 
+                args = list(df = 3))
 ```
 `@sct`
 ```{r}
@@ -515,7 +520,7 @@ success_msg("Замечательно! Как Вы могли убедиться
 
 
 ---
-## Характеристики распределения Стьюдента
+## Распределение Стьюдента
 
 ```yaml
 type: NormalExercise
