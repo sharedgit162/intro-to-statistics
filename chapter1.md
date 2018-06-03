@@ -652,21 +652,21 @@ round(___, 2) - round(___, 2)*round(___, 2)
 f <- function(x, y) {
   4*x^2*y
 }
-mu_x <- int2(f, a=c(0,0), b=c(1,1))
+mu_x <- int2(f, a=c(1,2), b=c(2,4))
 mu_x
 
 #Математическое ожидание E(Y)
 f <- function(x, y) {
   4*x*y^2
 }
-mu_y <- int2(f, a=c(0,0), b=c(1,1))
+mu_y <- int2(f, a=c(1,2), b=c(2,4))
 mu_y
 
 #Математическое ожидание E(XY)
 f <- function(x, y) {
   4*x^2*y^2
 }
-mu_xy <- int2(f, a=c(0,0), b=c(1,1))
+mu_xy <- int2(f, a=c(1,2), b=c(2,4))
 mu_xy
 
 #Ковариация X и Y
@@ -678,7 +678,7 @@ round(mu_xy, 2) - round(mu_x, 2)*round(mu_y, 2)
 #ex() %>% check_object("mu_x") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления mu_x.")
 #ex() %>% check_object("mu_x") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления mu_y.")
 #ex() %>% check_object("mu_x") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления mu_xy.")
-#ex() %>% check_output("-0.0089", missing_msg = "Проверьте правильность формулы для расчета дисперсии.")
+#ex() %>% check_output("-6097.78", missing_msg = "Проверьте правильность формулы для расчета дисперсии.")
 
 test_error()
 success_msg("Вы замечательно постарались!")
