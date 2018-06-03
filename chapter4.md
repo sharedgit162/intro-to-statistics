@@ -390,23 +390,16 @@ geom_vline(xintercept = median_win, col = "green", alpha = 0.2)
 test_object("mean_win", incorrect_msg = "Проверьте правильность вычисления `mean_win`.")
 test_object("median_win", incorrect_msg = "Проверьте правильность вычисления `median_win`.")
 
-ex() %>% {
-  check_function(., "ggplot") %>% check_arg("data") %>% check_equal()
-  check_function(., "aes") %>% {
-    check_arg(., "x") %>% check_equal(eval = FALSE)
-  }
-  check_function(., "geom_histogram") %>% check_arg("bins") %>% check_equal()
-  check_function(., "geom_vline") %>% {
-    check_arg(., "xintercept") %>% check_equal(eval = FALSE)
-    check_arg(., "col") %>% check_equal(eval = FALSE)
-    check_arg(., "alpha") %>% check_equal(eval = FALSE)
-    }
-  check_function(., "geom_vline") %>% {
-    check_arg(., "xintercept") %>% check_equal(eval = FALSE)
-    check_arg(., "col") %>% check_equal(eval = FALSE)
-    check_arg(., "alpha") %>% check_equal(eval = FALSE)
-    }    
-}
+check_ggplot(state, index = 1, all_fail_msg = NULL, check_data = TRUE,
+  data_fail_msg = NULL, check_aes = TRUE, aes_fail_msg = NULL,
+  exact_aes = TRUE, check_geom = TRUE, geom_fail_msg = NULL,
+  exact_geom = TRUE, check_geom_params = NULL, check_facet = TRUE,
+  facet_fail_msg = NULL, check_scale = TRUE, scale_fail_msg = NULL,
+  exact_scale = FALSE, check_coord = TRUE, coord_fail_msg = NULL,
+  exact_coord = FALSE, check_stat = TRUE, stat_fail_msg = NULL,
+  exact_stat = FALSE, check_extra = NULL, extra_fail_msg = NULL,
+  exact_extra = NULL, check = NULL)
+
 
 test_error()
 success_msg("Бесподобно! В данном датасете медиана и среднее не сильно друг от друга отличаются, но это необходимо проверять, чтобы не допускать ошибок при анализе.")
@@ -460,19 +453,38 @@ double_plot
 `@solution`
 ```{r}
 # Построение графика плотности
-density <- ggplot(data = candy, aes(x = winpercent)) + geom_density()
-density
+ggplot(data = candy, aes(x = winpercent)) + 
+geom_density()
+
 
 # Наложение графика плотности на гистограмму
-double_plot <- ggplot(data = candy, aes(x = winpercent)) +
+ggplot(data = candy, aes(x = winpercent)) +
   geom_histogram(aes(y=..density..), bins = 10) +
   geom_density(alpha = 0.2)
-double_plot
 ```
 `@sct`
 ```{r}
-test_object("density", incorrect_msg = "Проверьте правильность построения графика плотности.")
-test_object("double_plot", incorrect_msg = "Проверьте правильность построения двойного графика.")
+ex() %>% {
+  check_function(., "ggplot") %>% check_arg("data") %>% check_equal(incorrect_msg = "Проверьте, передали ли вы нужный датасет`.")
+  check_function(., "aes") %>% {
+    check_arg(., "x") %>% check_equal(eval = FALSE, incorrect_msg = "Проверьте, правильно ли Вы определили аргумент `x`.") 
+  }
+  check_function(., "geom_density")
+}
+
+ex() %>% {
+  check_function(., "ggplot") %>% check_arg("data") %>% check_equal(incorrect_msg = "Проверьте, передали ли вы нужный датасет`.")
+  check_function(., "aes") %>% {
+    check_arg(., "x") %>% check_equal(eval = FALSE, incorrect_msg = "Проверьте, правильно ли Вы определили аргумент `x`.") 
+  }
+  check_function(., "geom_histogram") {
+    check_function(., "aes") %>% check_arg(., "y") %>% check_equal(incorrect_msg = "Не изменяйте код, данный в задании.")
+    check_arg(., "bins") %>% check_equal(eval = FALSE, incorrect_msg = "Проверьте, правильно ли Вы определили аргумент `bins`.") 
+  }
+  check_function(., "geom_density") {
+    check_arg(., "alpha") %>% check_equal(eval = FALSE, incorrect_msg = "Проверьте, правильно ли Вы определили аргумент `alpha`.") 
+  }
+}
 
 #General
 test_error()
