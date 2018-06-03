@@ -669,12 +669,9 @@ round(mu_xy, 2) - round(mu_x, 2)*round(mu_y, 2)
 `@sct`
 ```{r}
 #General
-test_object("f", incorrect_msg = "Проверьте правильность записи функции.")
-test_object("mu_x", incorrect_msg = "Проверьте правильность интегрирования при вычислении `mu_x`.")
-test_object("f", incorrect_msg = "Проверьте правильность записи функции.")
-test_object("mu_x", incorrect_msg = "Проверьте правильность интегрирования при вычислении `mu_y`.")
-test_object("f", incorrect_msg = "Проверьте правильность записи функции.")
-test_object("mu_x", incorrect_msg = "Проверьте правильность интегрирования при вычислении `mu_xy`.")
+test_object("mu_x", incorrect_msg = "Проверьте правильность записи функции и интегрирования при вычислении `mu_x`.")
+test_object("mu_x", incorrect_msg = "Проверьте правильность записи функции и интегрирования при вычислении `mu_y`.")
+test_object("mu_x", incorrect_msg = "Проверьте правильность записи функции и интегрирования при вычислении `mu_xy`.")
 test_output("-0.0089", missing_msg = "Проверьте правильность формулы для расчета дисперсии.")
 
 test_error()
