@@ -523,10 +523,10 @@ hist_sugar_quantile
 `@sct`
 ```{r}
 #General
-test_object("xmin") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `xmin`.")
-test_object("xmax") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `xmax`.")
-test_object("hist_sugar") %>% check_equal(incorrect_msg = "Проверьте правильность построения графика.")
-test_object("hist_sugar_quantile") %>% check_equal(incorrect_msg = "Проверьте правильность построения графика.")
+test_object("xmin", incorrect_msg = "Проверьте правильность вычисления `xmin`.")
+test_object("xmax", incorrect_msg = "Проверьте правильность вычисления `xmax`.")
+test_object("hist_sugar", incorrect_msg = "Проверьте правильность построения графика.")
+test_object("hist_sugar_quantile", incorrect_msg = "Проверьте правильность построения графика.")
 test_error()
 success_msg("Невероятно! Теперь Вы сможете сформировать представление о любом датасете!")
 ```
@@ -590,8 +590,8 @@ candy_cor
 ```{r}
 test_student_typed("library(corrplot)", not_typed_msg = "Вы не подгрузили библиотеку corrplot. Внимательно прочтите инструкцию")
 test_student_typed("library(dplyr)", not_typed_msg = "Вы не подгрузили библиотеку dplyr. Внимательно прочтите инструкцию")
-test_object("candy_cut") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `candy_cut`.")
-test_object("candy_cor") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `candy_cor`.")
+test_object("candy_cut", incorrect_msg = "Проверьте правильность вычисления `candy_cut`.")
+test_object("candy_cor", incorrect_msg = "Проверьте правильность вычисления `candy_cor`.")
 
 #General
 test_error()
@@ -776,14 +776,16 @@ key: 427cb183aa
 
 ```
 
-Текст
+Умение строить доверительные интвервалы и отображать их на графиках -- это ещё одно важное умение для исследователя датасетов. Сейчас Вам будет представлена возможность рассчитать интервалы для значения среднего пользовательских оценок и дисперсии.
 
 `@instructions`
 - Высчитайте среднее пользовательских оценок.
 - Высчитайте стандартное отклонение пользовательских оценок.
+- Высчитайте критическое значение для 95% доверительного интервала.
 - По формуле вычислите нижнее и верхнее значение доверительного интервала.
 
 `@hint`
+- Формула для расчёта: $CI \in [\mu - z_crit * sd; \mu + x_crit * sd]$
 - Для 95% доверительного интервала значение, передаваемое в функцию `qnorm()` не равно 0.95,
 
 `@pre_exercise_code`
@@ -823,11 +825,11 @@ upper <- mean_win + q*sd_win
 ```
 `@sct`
 ```{r}
-test_object("mean_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `mean_win`.")
-test_object("sd_win") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `sd_win`.")
-test_object("q") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `q`.")
-test_object("lower") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `lower`.")
-test_object("upper") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `upper`.")
+test_object("mean_win", incorrect_msg = "Проверьте правильность вычисления `mean_win`.")
+test_object("sd_win", incorrect_msg = "Проверьте правильность вычисления `sd_win`.")
+test_object("q", incorrect_msg = "Проверьте правильность вычисления `q`.")
+test_object("lower", incorrect_msg = "Проверьте правильность вычисления `lower`.")
+test_object("upper", incorrect_msg = "Проверьте правильность вычисления `upper`.")
 
 #General
 test_error()
@@ -849,10 +851,10 @@ lang: r
 xp: 100
 skills: 1
 ```
-
+Теперь пришло время изобразить этот интервал на гистограмме! Вычисленные ранее значения lower и upper уже загружены.
 
 `@instructions`
-- На гистограмме с bins = 10 изобразите двумя красными линиями интервал пользовательских оценок (lower и upper, вычисленные ранее, уже загружены)
+- На гистограмме с bins = 10 изобразите двумя красными линиями интервал пользовательских оценок.
 
 `@hint`
 В качестве `xintercept` установите загруженные переменные lower и upper, а цвет установите равным "red".
@@ -887,7 +889,7 @@ plot
 
 `@sct`
 ```{r}
-test_object("plot") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `plot`.")
+test_object("plot", incorrect_msg = "Проверьте правильность вычисления `plot`.")
 
 #General
 test_error()
@@ -907,63 +909,70 @@ key: 5eb027fa4b
 
 ```
 
-Теперь Вы можете отработать построение доверительных интервалов для дисперсии. Для этого Вам необходимо построить хи-квадрат распределение с количеством степеней свободы, равных количеству наблюдений. Так как наблюдения записываются в строки, то для нахождения их количества Вам понадобится функция `nrow()`
+Теперь Вы можете отработать построение доверительных интервалов для дисперсии. Для этого Вам необходимо построить хи-квадрат распределение с количеством степеней свободы, равных количеству наблюдений - 1. Так как наблюдения записываются в строки, то для нахождения их количества Вам понадобится функция `nrow()`.
+
+
 
 `@instructions`
-- Найдите выборочную дисперсию доли сахара.
+- Найдите дисперсию доли сахара.
 - Найдите количество степеней свободы.
 - Найдите верхнюю и нижнюю статистику для хи-квадрат распределения для 90% интервала.
-- Найдите верхнюю и нижнюю границу интервала.
+- Найдите верхнюю и нижнюю границу интервала дисперси.
+
+`@hint`
+```{r}
+- Формула для расчёта: $\sigma \in [\dfraq{(n-1)*\hat{sigma^2}}{r_q}; \dfraq{(n-1)*\hat{sigma^2}}{l_q}]$
+```
 
 
 `@pre_exercise_code`
 ```{r}
-#candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
+candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"))
 ```
 `@sample_code`
 ```{r}
 # Дисперсия доли сахара в шоколадках
-#sd_sug <- ___(___)
+sd_sug <- ___(___)
 
 # Количество наблюдений
-#n <- nrow(___)
+n <- nrow(___)
 
 # Нахождение критических значений для 90% доверительного интервала
-#l_q <- qchisq(p = ___, df = ___)
-#r_q <- ___(___, ___)
+l_q <- qchisq(p = ___, df = ___)
+r_q <- ___(___, ___)
 
 # Построение 90% доверительного интервала для дисперсии
-#lower <- ___*___/___
-#upper <- ___
+lower <- ___*___/___
+upper <- ___
 ```
 `@solution`
 ```{r}
 # Дисперсия доли сахара в шоколадках
-#sd_sug <- sd(candy$sugarpercent)
+sd_sug <- sd(candy$sugarpercent)
 
 # Количество наблюдений
-#n <- nrow(candy)
+n <- nrow(candy)
 
 # Нахождение статистик для 90% доверительного интервала
-#l_q <- qchisq(p = 0.05, df = n-1)
-#r_q <- qchisq(p = 0.95, df = n-1)
+l_q <- qchisq(p = 0.05, df = n-1)
+r_q <- qchisq(p = 0.95, df = n-1)
 
 # Построение 90% доверительного интервала для дисперсии
-#lower <- sd_sug*(n-1)/r_q
-#upper <- sd_sug*(n-1)/l_q
+lower <- sd_sug*(n-1)/r_q
+upper <- sd_sug*(n-1)/l_q
 ```
 `@sct`
 ```{r}
-#ex() %>% check_object("sd_sug") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `sd_sug`.")
-#ex() %>% check_object("n") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `n`.")
-#ex() %>% check_object("l_q") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `l_q`.")
-#ex() %>% check_object("r_q") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `r_q`.")
-#ex() %>% check_object("lower") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `lower`.")
-#ex() %>% check_object("upper") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `upper`.")
+test_object("sd_sug", incorrect_msg = "Проверьте правильность вычисления `sd_sug`.")
+test_object("n", incorrect_msg = "Проверьте правильность вычисления `n`.")
+test_object("l_q", incorrect_msg = "Проверьте правильность вычисления `l_q`.")
+test_object("r_q", incorrect_msg = "Проверьте правильность вычисления `r_q`.")
+test_object("lower", incorrect_msg = "Проверьте правильность вычисления `lower`.")
+test_object("upper", incorrect_msg = "Проверьте правильность вычисления `upper`.")
 
 #General
-#test_error()
-#success_msg("Безупречно!  Вы прекрасно справились со всеми заданиями и смогли проанализировать представленный Вам датасет.")
+test_error()
+success_msg("Безупречно!  Вы прекрасно справились со всеми заданиями и смогли проанализировать представленный Вам датасет.")
 ```
 
 
