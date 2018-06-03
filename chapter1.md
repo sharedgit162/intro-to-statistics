@@ -477,10 +477,6 @@ f <- function(_) {
 mu <- integrate(_, _, _)
 mu
 
-#График функции плотности
-ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
-  stat_function(fun = dchisq, n = 100, 
-                args = list(df = 3))
 ```
 `@solution`
 ```{r}
@@ -500,10 +496,6 @@ f <- function(x) {
 mu <- integrate(f, -Inf, Inf)
 mu
 
-#График функции плотности
-ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
-  stat_function(fun = dchisq, n = 100, 
-                args = list(df = 3))
 ```
 `@sct`
 ```{r}
