@@ -219,7 +219,6 @@ x_ecdf <- sort(___, decreasing = FALSE)
 
 #Сгенерируйте значения выборочной функции распределения
 y_ecdf <- seq(from = ___, to = ___, by=___)/n
-
 ```
 `@solution`
 ```{r}
@@ -234,8 +233,6 @@ x_ecdf <- sort(faithful$waiting, decreasing = FALSE)
 
 #Сгенерируйте значения выборочной функции распределения
 y_ecdf <- seq(from = 1, to = n, by=1)/n
-
-
 ```
 `@sct`
 ```{r}
@@ -343,7 +340,6 @@ x_ecdf <- sort(faithful$waiting, decreasing = FALSE)
 
 #Сгенерируйте значения выборочной функции распределения
 y_ecdf <- seq(from = 1, to = n, by=1)/n
-
 ```
 `@sample_code`
 ```{r}
