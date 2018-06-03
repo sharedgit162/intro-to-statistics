@@ -214,7 +214,6 @@ key: 9b02ed8ddb
 
 ```
 
-НЕ РАБОТАЕТ
 При работе с реальными данными практически никогда нельзя сделать вывод, глядя на сухие числа. У Вас должна сформироваться привычка всегда визуализировать данные, потому что тогда Вы сможете обнаружить зависимости, которые не видно при анализе таблицы или потока чисел. В данном курсе Вы будете использовать самые простые методы визуализации, но их вполне бывает достаточно для первичного анализа.
 
 `@instructions`
@@ -253,11 +252,11 @@ ggplot(data = candy, aes(x = winpercent)) +
 test_student_typed("library(ggplot2)", not_typed_msg = "Возникла проблема с загрузкой библиотеки. Вы воспользовались функцией 'library()'?")
 
 ex() %>% {
-  check_function(., "ggplot") %>% check_arg("data") %>% check_equal()
+  check_function(., "ggplot") %>% check_arg("data") %>% check_equal(incorrect_msg = "Проверьте, передали ли вы нужный датасет`.")
   check_function(., "aes") %>% {
-    check_arg(., "x") %>% check_equal(eval = FALSE) 
+    check_arg(., "x") %>% check_equal(eval = FALSE, incorrect_msg = "Проверьте, правильно ли Вы определили аргумент `x`.") 
   }
-  check_function(., "geom_histogram") %>% check_arg("binwidth") %>% check_equal()
+  check_function(., "geom_histogram") %>% check_arg("binwidth") %>% check_equal(incorrect_msg = "Проверьте величину binwidth.")
 }
 
 #second instruction
@@ -363,7 +362,7 @@ median_win <- ___(___)
 median_win
 
 # Гистограмма с отображёнными значениями среднего и медианы
-plot <- ggplot(___, aes(___)) +
+ggplot(___, aes(___)) +
    ___(bins = 10) +
   geom_vline(xintercept = ___, col = "___", alpha = ___) +
   geom_vline(xintercept = ___, col = "___", alpha = ___)
@@ -379,15 +378,35 @@ median_win <- median(candy$winpercent)
 median_win
 
 # Гистограмма с отображёнными значениями среднего и медианы
-plot <- ggplot(data = candy, aes(x = winpercent)) + geom_histogram(bins = 10) + geom_vline(xintercept = mean_win, col = "red", alpha = 0.4) + geom_vline(xintercept = median_win, col = "green", alpha = 0.2)
-plot
+ggplot(data = candy, aes(x = winpercent)) + 
+geom_histogram(bins = 10) + 
+geom_vline(xintercept = mean_win, col = "red", alpha = 0.4) + 
+geom_vline(xintercept = median_win, col = "green", alpha = 0.2)
+
 ```
 `@sct`
 ```{r}
 #General
 test_object("mean_win", incorrect_msg = "Проверьте правильность вычисления `mean_win`.")
 test_object("median_win", incorrect_msg = "Проверьте правильность вычисления `median_win`.")
-test_object("plot", incorrect_msg = "Проверьте правильность построения графика.")
+
+ex() %>% {
+  check_function(., "ggplot") %>% check_arg("data") %>% check_equal()
+  check_function(., "aes") %>% {
+    check_arg(., "x") %>% check_equal(eval = FALSE)
+  }
+  check_function(., "geom_histogram") %>% check_arg("bins") %>% check_equal()
+  check_function(., "geom_vline") %>% {
+    check_arg("xintercept") %>% check_equal(eval = FALSE)
+    check_arg("col") %>% check_equal(eval = FALSE)
+    check_arg("alpha") %>% check_equal(eval = FALSE)
+    }
+  check_function(., "geom_vline") %>% {
+    check_arg("xintercept") %>% check_equal(eval = FALSE)
+    check_arg("col") %>% check_equal(eval = FALSE)
+    check_arg("alpha") %>% check_equal(eval = FALSE)
+    }    
+}
 
 test_error()
 success_msg("Бесподобно! В данном датасете медиана и среднее не сильно друг от друга отличаются, но это необходимо проверять, чтобы не допускать ошибок при анализе.")
