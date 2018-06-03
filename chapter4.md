@@ -397,14 +397,14 @@ ex() %>% {
   }
   check_function(., "geom_histogram") %>% check_arg("bins") %>% check_equal()
   check_function(., "geom_vline") %>% {
-    check_arg("xintercept") %>% check_equal(eval = FALSE)
-    check_arg("col") %>% check_equal(eval = FALSE)
-    check_arg("alpha") %>% check_equal(eval = FALSE)
+    check_arg(., "xintercept") %>% check_equal(eval = FALSE)
+    check_arg(., "col") %>% check_equal(eval = FALSE)
+    check_arg(., "alpha") %>% check_equal(eval = FALSE)
     }
   check_function(., "geom_vline") %>% {
-    check_arg("xintercept") %>% check_equal(eval = FALSE)
-    check_arg("col") %>% check_equal(eval = FALSE)
-    check_arg("alpha") %>% check_equal(eval = FALSE)
+    check_arg(., "xintercept") %>% check_equal(eval = FALSE)
+    check_arg(., "col") %>% check_equal(eval = FALSE)
+    check_arg(., "alpha") %>% check_equal(eval = FALSE)
     }    
 }
 
