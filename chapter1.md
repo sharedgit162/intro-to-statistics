@@ -584,14 +584,13 @@ mu_2$value - mu$value^2
 ```
 `@sct`
 ```{r}
-check_object("f") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X).")
-check_object("mu") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X).")
-check_object("f") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X2).")
-check_object("mu_2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X2).")
-test_student_typed("mu_2$value - mu$value^2", not_typed_msg = "Проверьте правильность формулы для расчета дисперсии.")
-
-
 #General
+#ex() %>% check_object("f") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X).")
+#ex() %>% check_object("mu") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X).")
+#ex() %>% check_object("f") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X2).")
+#ex() %>% check_object("mu_2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X2).")
+#ex() %>% check_output("3", missing_msg = "Проверьте правильность формулы для расчета дисперсии.")
+
 test_error()
 success_msg("Отлично!")
 ```
