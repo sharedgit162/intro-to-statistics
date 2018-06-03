@@ -60,7 +60,7 @@ head(candy, 10)
 `@sct`
 ```{r}
 #first instruction
-test_student_typed("library(psych)", not_typed_msg = "Вы не подгрузили библиотеку psych. Внимательно прочтите инструкцию")
+test_student_typed("library(psych)", not_typed_msg = "Вы не подгрузили библиотеку psych. Внимательно прочтите инструкцию.")
 
 #second instruction
 test_student_typed("describe(candy)", not_typed_msg = "Возникла проблема с анализом датасета. Внимательно прочтите инструкцию.")
@@ -806,7 +806,7 @@ key: 427cb183aa
 НЕ РАБОТАЕТ
 Умение строить доверительные интвервалы и отображать их на графиках -- это ещё одно важное умение для исследователя датасетов. Сейчас Вам будет представлена возможность рассчитать интервалы для значения среднего пользовательских оценок и дисперсии.
 
-Формула для расчёта: $CI \in [\mu - z_{crit} * sd; \mu + z_{crit} * sd]$
+Формула для расчёта: $CI \in [\mu - z * sd; \mu + z * sd]$
 
 `@instructions`
 - Высчитайте среднее пользовательских оценок.
@@ -831,7 +831,7 @@ mean_win <- ___
 sd_win <- ___
 
 # Вычислите статистику для 95% доверительного интервала
-q <- qnorm(___)
+z <- qnorm(___)
 
 # Вычислите нижнее и верхнее значение доверительного интервала 
 lower <- ___ - ___*___
@@ -846,19 +846,19 @@ mean_win <- mean(candy$winpercent)
 sd_win <- sd(candy$winpercent)
 
 # Вычислите статистику для 95% доверительного интервала
-q <- qnorm(p = 0.975)
+z <- qnorm(p = 0.975)
 
 # Вычислите нижнее и верхнее значение доверительного интервала 
-lower <- mean_win - q*sd_win
-upper <- mean_win + q*sd_win
+lower <- mean_win - z*sd_win
+upper <- mean_win + z*sd_win
 ```
 `@sct`
 ```{r}
 test_object("mean_win", incorrect_msg = "Проверьте правильность вычисления `mean_win`.")
 test_object("sd_win", incorrect_msg = "Проверьте правильность вычисления `sd_win`.")
-
-test_object("lower", incorrect_msg = "Проверьте правильность вычисления `lower`.")
-test_object("upper", incorrect_msg = "Проверьте правильность вычисления `upper`.")
+ex() %>% check_object("z") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления `z`.")
+ex() %>% check_object("lower") %>% check_equal()
+ex() %>% check_object("upper") %>% check_equal()
 
 #General
 test_error()
