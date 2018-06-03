@@ -619,7 +619,7 @@ test_student_typed("ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
 	stat_function(fun = dt, n = 100, 
                 args = list(df = 5)) +
 	stat_function(fun = dt, n = 100, 
-                args = list(df = 50))", not_typed_msg = "Проверьте правильность команды для функции плотности распределения Стьюдента, а также число степеней свободы `df` в каждом графике.")
+                args = list(df = 50))", not_typed_msg = "Проверьте правильность команды для функции плотности распределения Стьюдента")
 
 #General
 test_error()
