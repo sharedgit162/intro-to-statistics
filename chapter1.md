@@ -617,7 +617,7 @@ key: 5e3f071348
 
 `@pre_exercise_code`
 ```{r}
-install.pac
+install.packages("rmutil")
 library(rmutil)
 ```
 `@sample_code`
@@ -625,8 +625,6 @@ library(rmutil)
 f <- function(_, _) {
   4*__*__
 }
-x <- seq(0, 1, len = 10^4)
-y <- seq(0, 1, len = 10^4)
 mu_x <- int2(_, a=c(_,_), b=c(_,_))
 mu_x
 
@@ -641,8 +639,6 @@ mu_y
 f <- _____ {
   ______
 }
-x <- seq(0, 1, len = 10^4)
-y <- seq(0, 1, len = 10^4)
 mu_xy <- int2(___)
 mu_xy
 
@@ -653,24 +649,18 @@ round(___, 2) - round(___, 2)*round(___, 2)
 f <- function(x, y) {
   4*x^2*y
 }
-x <- seq(0, 1, len = 10^4)
-y <- seq(0, 1, len = 10^4)
 mu_x <- int2(f, a=c(0,0), b=c(1,1))
 mu_x
 
 f <- function(x, y) {
   4*x*y^2
 }
-x <- seq(0, 1, len = 10^4)
-y <- seq(0, 1, len = 10^4)
 mu_y <- int2(f, a=c(0,0), b=c(1,1))
 mu_y
 
 f <- function(x, y) {
   4*x^2*y^2
 }
-x <- seq(0, 1, len = 10^4)
-y <- seq(0, 1, len = 10^4)
 mu_xy <- int2(f, a=c(0,0), b=c(1,1))
 mu_xy
 
