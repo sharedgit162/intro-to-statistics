@@ -569,14 +569,6 @@ mu_2
 #Дисперсия
 __$value - __$value__
 
-#Графики функции плотности
-ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
-	stat_function(fun = __, n = 100, 
-                args = list(df = _)) +
-	stat_function(fun = __, n = 100, 
-                args = list(df = _)) +
-	stat_function(fun = __, n = 100, 
-                args = list(df = _))
 ```
 `@solution`
 ```{r}
@@ -597,14 +589,6 @@ mu_2
 #Дисперсия
 mu_2$value - mu$value^2
 
-#Графики функции плотности
-ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
-	stat_function(fun = dt, n = 100, 
-                args = list(df = 2)) +
-	stat_function(fun = dt, n = 100, 
-                args = list(df = 5)) +
-	stat_function(fun = dt, n = 100, 
-                args = list(df = 50))
 ```
 `@sct`
 ```{r}
@@ -613,13 +597,7 @@ check_object("mu") %>% check_equal(incorrect_msg = "Проверьте прав�
 check_object("f") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X2).")
 check_object("mu_2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X2).")
 test_student_typed("mu_2$value - mu$value^2", not_typed_msg = "Проверьте правильность формулы для расчета дисперсии.")
-test_student_typed("ggplot(data = data.frame(x = c(0, 15)), aes(x)) +
-	stat_function(fun = dt, n = 100, 
-                args = list(df = 2)) +
-	stat_function(fun = dt, n = 100, 
-                args = list(df = 5)) +
-	stat_function(fun = dt, n = 100, 
-                args = list(df = 50))", not_typed_msg = "Проверьте правильность команды для функции плотности распределения Стьюдента")
+
 
 #General
 test_error()
