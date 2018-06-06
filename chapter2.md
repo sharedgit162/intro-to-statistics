@@ -278,6 +278,10 @@ key: ec782fd88d
 #Посчитайте число степеней свободы
 df <- ___
 
+#Найдите критические значения
+сrit_low <- ___
+crit_high <- ___ 
+
 #Вычислите границы 90% доверительного интервала
 high <- ___
 low  <- ___
@@ -288,16 +292,21 @@ low  <- ___
 df <- length(faithful$eruptions) - 1
 
 #Вычислите границы 90% доверительного интервала
-high  <- df*var(faithful$eruptions)/qchisq(0.95, df)
-low   <- df*var(faithful$eruptions)/qchisq(0.05, df)
+crit_high <- qchisq(0.05, df)
+сrit_low  <- qchisq(0.95, df)
+high  <- df*var(faithful$eruptions)/low
+low   <- df*var(faithful$eruptions)/high
 ```
 `@sct`
 ```{r}
 msg_1 = "Число степений свободы должно быть на единицу меньше числа наблюдений."
 msg_2 = "Кажется, Вы забыли формулу доверительного интервала."
+msg_3 = "Чтобы получить критические значения, передайте в функцию qchisq() порядок квантиля и число степеней свободы."
 
 
 test_object("df", undefined_msg = msg_1, incorrect_msg = msg_1)
+test_object("crit_high", undefined_msg = msg_3, incorrect_msg = msg_3)
+test_object("crit_low", undefined_msg = msg_3, incorrect_msg = msg_3)
 test_object("low", undefined_msg = msg_2, incorrect_msg = msg_2)
 test_object("high", undefined_msg = msg_2, incorrect_msg = msg_2)
 test_error()
