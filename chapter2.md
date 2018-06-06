@@ -267,6 +267,7 @@ key: ec782fd88d
 - Найдите число степеней свободы. 
 
 **Hint:** Длину вектора можно вычислить с помощью функции `length`.
+- Посчитайте критические значения. Вам пригодится функция qchisq().
 - Посчитайте верхнюю и нижнюю границы доверительного интервала.
 
 `@hint`
@@ -289,13 +290,14 @@ low  <- ___
 `@solution`
 ```{r}
 #Посчитайте число степеней свободы
+
 df <- length(faithful$eruptions) - 1
 
 #Вычислите границы 90% доверительного интервала
+crit_low <- qchisq(0.95, df)
 crit_high <- qchisq(0.05, df)
-сrit_low  <- qchisq(0.95, df)
-high  <- df*var(faithful$eruptions)/low
-low   <- df*var(faithful$eruptions)/high
+high  <- df*var(faithful$eruptions)/crit_low
+low   <- df*var(faithful$eruptions)/crit_high
 ```
 `@sct`
 ```{r}
