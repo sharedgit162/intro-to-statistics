@@ -427,7 +427,7 @@ ggplot() +
 ```{r}
 #second instruction
 test_student_typed("normal <- rnorm(1000000, 0, 1)")
-test_student_typed("quartile <- quantile(normal, 0.75)", not_typed_msg = "Вы посчитали третий квартиль?")
+test_student_typed("quartile <- quantile(normal, 0.75)", not_typed_msg = "Посчитали третий квартиль?")
 
 #General
 test_error()
