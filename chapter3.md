@@ -971,7 +971,7 @@ candy <- read.csv(url("https://raw.githubusercontent.com/fivethirtyeight/data/ma
 `@sample_code`
 ```{r}
 # Дисперсия доли сахара в шоколадках
-sd_sug <- ___(___)
+var_sug <- ___(___)
 
 # Количество наблюдений
 n <- nrow(___)
@@ -990,7 +990,7 @@ upper
 `@solution`
 ```{r}
 # Дисперсия доли сахара в шоколадках
-sd_sug <- sd(candy$sugarpercent)
+var_sug <- var(candy$sugarpercent)
 
 # Количество наблюдений
 n <- nrow(candy)
@@ -999,16 +999,16 @@ n <- nrow(candy)
 l_q <- qchisq(p = 0.05, df = n-1)
 r_q <- qchisq(p = 0.95, df = n-1)
 
-lower <- (sd_sug)^2*(n-1)/r_q
+lower <- var_sug*(n-1)/r_q
 lower
 
-upper <- (sd_sug)^2*(n-1)/l_q
+upper <- var_sug*(n-1)/l_q
 upper
 
 ```
 `@sct`
 ```{r}
-test_object("sd_sug", incorrect_msg = "Проверьте правильность вычисления `sd_sug`.")
+test_object("var_sug", incorrect_msg = "Проверьте правильность вычисления `var_sug`.")
 test_object("n", incorrect_msg = "Проверьте правильность вычисления `n`.")
 test_object("l_q", incorrect_msg = "Проверьте правильность вычисления `l_q`.")
 test_object("r_q", incorrect_msg = "Проверьте правильность вычисления `r_q`.")
