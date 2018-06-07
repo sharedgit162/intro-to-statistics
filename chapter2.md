@@ -309,7 +309,7 @@ mean_time
 test_function("mean", incorrect_msg = "Что-то не так с `mean_time`. Вызывали ли вы функцию `mean()` для подсчета среднего?")
 
 #second instruction
-test_student_typed("mean_time <- mean(faithful$waiting)", not_typed_msg = "Что-то не так с `mean_erupt`.")
+test_student_typed("mean_time <- mean(faithful$waiting)", not_typed_msg = "Что-то не так с `mean_time`.")
 
 #third instruction
 test_output_contains("mean_time", incorrect_msg = "Вывели ли вы получившееся значение на экран?")
