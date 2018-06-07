@@ -450,7 +450,7 @@ library(ggplot2)
 # Наложение графика плотности на гистограмму
 ggplot(___, ___) +
   ___(aes(y=..density..), bins = ___) +
-  ___(fill = '___', alpha = ___)
+  geom_density(fill = '___', alpha = ___)
 ```
 `@solution`
 ```{r}
