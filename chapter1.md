@@ -493,14 +493,14 @@ med <- qchisq(0.5, 3)
 med
 
 #Мода
-f <- function(x) {
+f1 <- function(x) {
   dchisq(x, 3)
 }
 mode <- optimize(f, c(0, 100), maximum = TRUE)
 mode
 
 #Математическое ожидание
-f <- function(x) {
+f2 <- function(x) {
   x*dchisq(x, 3)
 }
 mu <- integrate(f, -Inf, Inf)
@@ -511,8 +511,8 @@ mu
 #General
 ex() %>% check_object("med") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления медианы с помощью команды `chisq(p, df)`.")
 ex() %>% check_object("mode") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
-ex() %>% check_object("f") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
-ex() %>% check_object("f") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
+ex() %>% check_object("f1") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
+ex() %>% check_object("f2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
 ex() %>% check_object("mu") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
 
 test_error()
@@ -545,20 +545,20 @@ key: 8c2c232912
 * С помощью интегрирования посчитайте дисперсию распределения Стьюдента с 3 степенями свободы. Для этого вспомните формулу для нахождения дисперсии, которую Вы использовали в предыдущем блоке: $Var(X) = E(X^2) - (E(X))^2$. Теперь Вы можете сопоставить полученное значение с дисперсии с результатом, вычисленным по формуле $\frac{n}{n-2} $, где n - число степеней свободы.
 
 `@hint`
-Обратите внимание на правильность команд `function` для случаев `E(X)` и `E(X2)`, а также  `integarate`.
+Обратите внимание на правильность команд `function` для случаев `E(X)` и `E(X2)`, а также  `integrate`.
 
 
 `@sample_code`
 ```{r}
 #Математическое ожидание E(X)
-f <- ____(x) {
+f1 <- ____(x) {
   _______
 }
 mu <- ______(_, _, _)
 mu
 
 #Математическое ожидание E(X2)
-f <- ____(x) {
+f2 <- ____(x) {
   _______
 }
 mu_2 <- ______(_, _, _, subdivisions = 2000)
@@ -570,14 +570,14 @@ __$value - __$value__
 `@solution`
 ```{r}
 #Математическое ожидание E(X)
-f <- function(x) {
+f1 <- function(x) {
   x*dt(x, 3)
 }
 mu <- integrate(f, -Inf, Inf)
 mu
 
 #Математическое ожидание E(X2)
-f <- function(x) {
+f2 <- function(x) {
   x^2*dt(x, 3)
 }
 mu_2 <- integrate(f, -Inf, Inf, subdivisions = 2000)
@@ -589,9 +589,9 @@ mu_2$value - mu$value^2
 `@sct`
 ```{r}
 #General
-ex() %>% check_object("f") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X).")
+ex() %>% check_object("f1") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X).")
 ex() %>% check_object("mu") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X).")
-ex() %>% check_object("f") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X2).")
+ex() %>% check_object("f2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X2).")
 ex() %>% check_object("mu_2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X2).")
 test_student_typed("mu_2$value - mu$value^2", not_typed_msg = "Проверьте правильность формулы для расчета дисперсии.")
 
