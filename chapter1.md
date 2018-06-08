@@ -551,14 +551,14 @@ key: 8c2c232912
 `@sample_code`
 ```{r}
 #Математическое ожидание E(X)
-f1 <- ____(x) {
+f_1 <- ____(x) {
   _______
 }
 mu <- ______(_, _, _)
 mu
 
 #Математическое ожидание E(X2)
-f2 <- ____(x) {
+f_2 <- ____(x) {
   _______
 }
 mu_2 <- ______(_, _, _, subdivisions = 2000)
@@ -570,14 +570,14 @@ __$value - __$value__
 `@solution`
 ```{r}
 #Математическое ожидание E(X)
-f1 <- function(x) {
+f_1 <- function(x) {
   x*dt(x, 3)
 }
 mu <- integrate(f, -Inf, Inf)
 mu
 
 #Математическое ожидание E(X2)
-f2 <- function(x) {
+f_2 <- function(x) {
   x^2*dt(x, 3)
 }
 mu_2 <- integrate(f, -Inf, Inf, subdivisions = 2000)
@@ -589,9 +589,9 @@ mu_2$value - mu$value^2
 `@sct`
 ```{r}
 #General
-ex() %>% check_object("f1") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X).")
+ex() %>% check_object("f_1") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X).")
 ex() %>% check_object("mu") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X).")
-ex() %>% check_object("f2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X2).")
+ex() %>% check_object("f_2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X2).")
 ex() %>% check_object("mu_2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания E(X2).")
 test_student_typed("mu_2$value - mu$value^2", not_typed_msg = "Проверьте правильность формулы для расчета дисперсии.")
 
