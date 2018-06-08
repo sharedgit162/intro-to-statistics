@@ -473,14 +473,14 @@ med <- q____(_, _)
 med
 
 #Мода
-f <- function(_) {
+f_1 <- function(_) {
   d____(_, _)
 }
 mode <- optimize(_, c(0, 100), maximum = ____)
 mode
 
 #Математическое ожидание
-f <- function(_) {
+f_2 <- function(_) {
   _*d____(_, _)
 }
 mu <- integrate(_, _, _)
@@ -493,26 +493,26 @@ med <- qchisq(0.5, 3)
 med
 
 #Мода
-f1 <- function(x) {
+f_1 <- function(x) {
   dchisq(x, 3)
 }
-mode <- optimize(f, c(0, 100), maximum = TRUE)
+mode <- optimize(f_1, c(0, 100), maximum = TRUE)
 mode
 
 #Математическое ожидание
-f2 <- function(x) {
+f_2 <- function(x) {
   x*dchisq(x, 3)
 }
-mu <- integrate(f, -Inf, Inf)
+mu <- integrate(f_2, -Inf, Inf)
 mu
 ```
 `@sct`
 ```{r}
 #General
 ex() %>% check_object("med") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления медианы с помощью команды `chisq(p, df)`.")
+ex() %>% check_object("f_1") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
 ex() %>% check_object("mode") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
-ex() %>% check_object("f1") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
-ex() %>% check_object("f2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
+ex() %>% check_object("f_2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
 ex() %>% check_object("mu") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
 
 test_error()
@@ -573,14 +573,14 @@ __$value - __$value__
 f_1 <- function(x) {
   x*dt(x, 3)
 }
-mu <- integrate(f, -Inf, Inf)
+mu <- integrate(f_1, -Inf, Inf)
 mu
 
 #Математическое ожидание E(X2)
 f_2 <- function(x) {
   x^2*dt(x, 3)
 }
-mu_2 <- integrate(f, -Inf, Inf, subdivisions = 2000)
+mu_2 <- integrate(f_2, -Inf, Inf, subdivisions = 2000)
 mu_2
 
 #Дисперсия
