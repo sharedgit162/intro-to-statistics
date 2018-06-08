@@ -605,7 +605,7 @@ success_msg("Отлично! Теперь Вы убедились, что фор
 
 
 ---
-## Insert exercise title here
+## Ковариация
 
 ```yaml
 type: PureMultipleChoiceExercise
