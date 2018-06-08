@@ -489,13 +489,15 @@ mu
 `@solution`
 ```{r}
 #Медиана
-qchisq(0.5, 3)
+med <- qchisq(0.5, 3)
+med
 
 #Мода
 f <- function(x) {
   dchisq(x, 3)
 }
-optimize(f, c(0, 100), maximum = TRUE)
+mode <- optimize(f, c(0, 100), maximum = TRUE)
+mode
 
 #Математическое ожидание
 f <- function(x) {
@@ -507,11 +509,11 @@ mu
 `@sct`
 ```{r}
 #General
-#ex() %>% check_object("med") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления медианы с помощью команды `chisq(p, df)`.")
-#ex() %>% check_object("mode") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
-#ex() %>% check_object("f") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
-#ex() %>% check_object("f") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
-#ex() %>% check_object("mu") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
+ex() %>% check_object("med") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления медианы с помощью команды `chisq(p, df)`.")
+ex() %>% check_object("mode") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
+ex() %>% check_object("f") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
+ex() %>% check_object("f") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
+ex() %>% check_object("mu") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
 
 test_error()
 success_msg("Замечательно! Как Вы могли убедиться, значения медианы, моды и математического ожидания для распределения Хи-квадрат не совпадают!")
