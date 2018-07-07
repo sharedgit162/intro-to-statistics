@@ -527,7 +527,7 @@ mode_1
 library(modeest)
 
 mode_2 <- chisqMode(3, ncp = 0)
-
+mode_2
 
 #Математическое ожидание
 f_2 <- function(x) {
@@ -542,6 +542,7 @@ mu
 ex() %>% check_object("med") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления медианы с помощью команды `chisq(p, df)`.")
 ex() %>% check_object("f_1") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
 ex() %>% check_object("mode") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
+ex() %>
 ex() %>% check_object("f_2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
 ex() %>% check_object("mu") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
 
