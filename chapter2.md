@@ -17,7 +17,7 @@ xp: 50
 skills: 1
 video_link: https://dl.dropboxusercontent.com/s/ww3s3b6x6fpd5q4/%D0%9D%D0%B0%D1%81%D1%82%D1%8F%2C%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.mp4?dl=0
 ```
-
+[Слайды](https://dl.dropboxusercontent.com/s/fv6k6qm3pcpjeoy/%D0%92%D1%8B%D0%B1%D0%BE%D1%80%D0%BE%D1%87%D0%BD%D1%8B%D0%B5%20%D1%85%D0%B0%D1%80%D0%B0%D0%BA%D1%82%D0%B5%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B8.pdf?dl=0)
 
 ---
 ## Эмпирическая функция распределения
@@ -285,6 +285,7 @@ xp: 50
 skills: 1
 video_link: https://dl.dropboxusercontent.com/s/wrfiyf91h6leg29/%D0%9D%D0%B0%D0%B4%D1%8F%2C%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.mp4?dl=0
 ```
+[Слайды](https://dl.dropboxusercontent.com/s/o9mub4zl3i86jpq/%D0%9E%D1%86%D0%B5%D0%BD%D0%BA%D0%B0%20%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%BE%D0%B2%20%D1%81%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D1%8B%D1%85%20%D0%B2%D0%B5%D0%BB%D0%B8%D1%87%D0%B8%D0%BD.pdf?dl=0)
 
 
 ---

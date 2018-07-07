@@ -14,7 +14,7 @@ xp: 50
 skills: 1
 video_link: https://dl.dropboxusercontent.com/s/xti5wfr3trpzxj9/%D0%92%D0%BE%D0%B2%D0%B0%2C%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.mp4?dl=0
 ```
-[Слайды](https://dl.dropboxusercontent.com/s/jni0djgyxzc680y/%D0%94%D0%B8%D1%81%D0%BA%D1%80%D0%B5%D1%82%D0%BD%D1%8B%D0%B5%20%D1%80%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.pdf?dl=0)
+[Слайды](https://dl.dropboxusercontent.com/s/yg5opbj1mqlxk5m/%D0%A2%D0%B5%D0%BE%D1%80%D0%B8%D1%8F%20%D0%B2%D0%B5%D1%80%D0%BE%D1%8F%D1%82%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9%20%D0%B8%20R.pdf?dl=0)
 
 ---
 ## Будет ли сегодня дождь?
@@ -416,7 +416,7 @@ skills: 1
 video_link: >-
   https://dl.dropboxusercontent.com/s/wtc4pm1pipkkoob/%D0%9B%D0%B5%D1%80%D0%B0%2C%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.mp4?dl=0
 ```
-
+[Слайды](https://dl.dropboxusercontent.com/s/2dtjw08tipo1m6i/%D0%9D%D0%B5%D0%BF%D1%80%D0%B5%D1%80%D1%8B%D0%B2%D0%BD%D1%8B%D0%B5%20%D1%80%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.pdf?dl=0)
 
 
 ---
@@ -480,7 +480,6 @@ key: 2089d6638f
 `@instructions`
 * Посчитайте медиану Хи-квадрат распределения с 3 степенями свободы, используя команду `qchisq(p, df)`, где p означает необходимую квантиль распределения, а df - число степеней свободы.
 * Посчитайте моду Хи-квадрат распределения с 3 степенями свободы. Для этого необходимо создать функцию плотности распределения f, используя команды `function(x)` и `dchisq(x, df)`. После это максимизируйте данную функцию плотности с помощью команды `optimize` (по умолчанию данная команда минимизирует функцию, поэтому необходимо поставить значение `TRUE` аргумента `maximum`).
-* Посчитайте моду Хи-квадрат распределения с 3 степенями свободы, используя специальный пакет `modeest`(не забудьте сначала его установить), и сравните результат с предыдущим пунктом.
 * Посчитайте математическое ожидание Хи-квадрат распределения с 3 степенями свободы. Для этого вспомните формулу математического ожидания в непрерывном случае:  
 ![](https://dl.dropboxusercontent.com/s/t2tjfkb1kxm3yg4/123.png?dl=0)  
 а также команды `function(x)` и `dchisq(x, df)`, с которыми Вы уже знакомы. Интегрировать функцию поможет команда `integrate(f, lower, upper)`.
@@ -515,18 +514,13 @@ mu
 med <- qchisq(0.5, 3)
 med
 
-#Мода (максимизация функции)
+#Мода
 f_1 <- function(x) {
   dchisq(x, 3)
 }
-mode_1 <- optimize(f_1, c(0, 100), maximum = TRUE)
-mode_1
+mode <- optimize(f_1, c(0, 100), maximum = TRUE)
+mode
 
-#Мода (специальный пакет)
-library(modeest)
-
-mode_2 <- chisqMode(3, ncp = 0)
-mode_2
 
 #Математическое ожидание
 f_2 <- function(x) {
@@ -540,8 +534,7 @@ mu
 #General
 ex() %>% check_object("med") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления медианы с помощью команды `chisq(p, df)`.")
 ex() %>% check_object("f_1") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
-ex() %>% check_object("mode_1") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды с использованием максимизации.")
-ex() %>% check_object("mode_2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
+ex() %>% check_object("mode") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
 ex() %>% check_object("f_2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
 ex() %>% check_object("mu") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
 

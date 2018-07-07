@@ -14,6 +14,7 @@ xp: 50
 skills: 1
 video_link: https://dl.dropboxusercontent.com/s/okk7646vjp129s9/%D0%90%D0%BD%D0%B0%D1%81%D1%82%D0%B0%D1%81%D0%B8%D1%8F%2C%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.mp4?dl=0
 ```
+[Слайды](https://dl.dropboxusercontent.com/s/taavs6fxrjuhbq0/%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%20%D0%BD%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85.pdf?dl=0)
 
 ---
 ## Знакомство с датасетом
