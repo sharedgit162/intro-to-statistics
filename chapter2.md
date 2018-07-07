@@ -283,7 +283,7 @@ key: d28266493f
 lang: r
 xp: 50
 skills: 1
-video_link: https://www.dropbox.com/s/liylgv71ylfw4t4/%D0%9D%D0%B0%D0%B4%D1%8F%2C%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.mp4?dl=0
+video_link: https://dl.dropboxusercontent.com/s/wrfiyf91h6leg29/%D0%9D%D0%B0%D0%B4%D1%8F%2C%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.mp4?dl=0
 ```
 
 
