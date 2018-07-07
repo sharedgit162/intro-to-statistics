@@ -534,8 +534,7 @@ mu
 #General
 ex() %>% check_object("med") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления медианы с помощью команды `chisq(p, df)`.")
 ex() %>% check_object("f_1") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
-ex() %>% check_object("mode_1") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды с использованием максимизации.")
-ex() %>% check_object("mode_2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
+ex() %>% check_object("mode") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления моды.")
 ex() %>% check_object("f_2") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
 ex() %>% check_object("mu") %>% check_equal(incorrect_msg = "Проверьте правильность вычисления математического ожидания.")
 
