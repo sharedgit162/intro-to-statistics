@@ -5,6 +5,20 @@
 
 
 
+
+---
+## Выборочные характеристики
+
+```yaml
+type: VideoExercise
+key: 73cb8162a4
+lang: r
+xp: 50
+skills: 1
+video_link: https://www.dropbox.com/s/ww3s3b6x6fpd5q4/%D0%9D%D0%B0%D1%81%D1%82%D1%8F%2C%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.mp4?dl=0
+```
+
+
 ---
 ## Эмпирическая функция распределения
 
@@ -257,6 +271,20 @@ test_error()
 success_msg("Да Вы и правда молодец!")
 ```
 
+
+
+
+---
+## Оценка параметров случайных величин
+
+```yaml
+type: VideoExercise
+key: d28266493f
+lang: r
+xp: 50
+skills: 1
+video_link: https://www.dropbox.com/s/liylgv71ylfw4t4/%D0%9D%D0%B0%D0%B4%D1%8F%2C%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.mp4?dl=0
+```
 
 
 ---
