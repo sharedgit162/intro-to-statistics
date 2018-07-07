@@ -526,7 +526,8 @@ mode_1
 #Мода (специальный пакет)
 library(modeest)
 
-chisqMode(3, ncp = 0)
+mode_2 <- chisqMode(3, ncp = 0)
+
 
 #Математическое ожидание
 f_2 <- function(x) {
