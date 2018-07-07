@@ -12,7 +12,7 @@ key: da7a060dd1
 lang: r
 xp: 50
 skills: 1
-video_link: https://dl.dropboxusercontent.com/s/338ibvuf7unej0a/3%20%D0%B3%D0%BB%D0%B0%D0%B2%D0%B0.mp4?dl=0
+video_link: https://dl.dropboxusercontent.com/s/xti5wfr3trpzxj9/%D0%92%D0%BE%D0%B2%D0%B0%2C%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.mp4?dl=0
 ```
 
 ---
